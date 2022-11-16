@@ -5,12 +5,12 @@ There are currently **6** main folders in this repository, each one correspondin
    
  > **Main Folder ID:** ```Activated Sludge Model Mathematical Development```
  >
- >> **IDs of Files Contained:** ```Activated Sludge Mathematical Model Development.pdf```   ```Activated Sludge Mathematical Model Development.tex```    ```Computational ASM Development.xlsx```
+ >> **IDs of Files Contained:** ```Activated Sludge Mathematical Model Development.pdf```   ```Activated Sludge Mathematical Model Development.tex```    ```Computational ASM Development.xlsx``` ```README.md```
 
    
  > **Main Folder ID:** ```Analysis of the Hydraulic Characteristics of a Proposed Bridge Development```
  >
- >> **IDs of Files Contained:** ```Analysis of Hydraulic Characteristics of a Proposed Bridge.pdf``` ```Analysis of Hydraulic Characteristics of a Proposed Bridge.tex```
+ >> **IDs of Files Contained:** ```Analysis of Hydraulic Characteristics of a Proposed Bridge.pdf``` ```Analysis of Hydraulic Characteristics of a Proposed Bridge.tex``` ```README.md```
  >
  >> **Subfolder ID:** ```HEC-RAS Files```
  >>
@@ -18,11 +18,11 @@ There are currently **6** main folders in this repository, each one correspondin
    
   > **Main Folder ID:** ```Design of a Municipal Water Distribution System```
   >
-  >> **IDs of Files Contained:** ```Design of a Hydraulic Distribution System.pdf``` ```Design of a Hydraulic Distribution System.tex``` ```Hardy Cross Iterations.xlsx```
+  >> **IDs of Files Contained:** ```Design of a Hydraulic Distribution System.pdf``` ```Design of a Hydraulic Distribution System.tex``` ```Hardy Cross Iterations.xlsx``` ```README.md```
    
   > **Main Folder ID:** ```Hydraulic Modelling of Critical Creek```
   >
-  >> **IDs of Files Contained:** ```Modeling Critical Creek in HEC-RAS.pdf``` ```Modeling Critical Creek in HEC-RAS.tex```
+  >> **IDs of Files Contained:** ```Modeling Critical Creek in HEC-RAS.pdf``` ```Modeling Critical Creek in HEC-RAS.tex``` ```README.md```
   >
   >> **Subfolder ID:** ```HEC-RAS Files```
   >>
@@ -30,7 +30,7 @@ There are currently **6** main folders in this repository, each one correspondin
    
   > **Main Folder ID:** ```Hydraulic Modelling of the Tifton Basin```
   >
-  >> **IDs of Files Contained:** ```Modeling Tifton Basin in HEC-HMS.pdf``` ```Modeling Tifton Basin in HEC-HMS.tex```
+  >> **IDs of Files Contained:** ```Modeling Tifton Basin in HEC-HMS.pdf``` ```Modeling Tifton Basin in HEC-HMS.tex``` ```README.md```
   >
   >> **Subfolder ID:** ```HEC-HMS Files```
   >>
@@ -39,4 +39,4 @@ There are currently **6** main folders in this repository, each one correspondin
    
   > **Main Folder ID:** ```Wildfire Impacts on Hydrological Processes at the Catchment Scale```
   >
-  >> **IDs of Files Contained:** ```Wildfire impacts on hydrological processes (Presentation Slides).pdf``` ```Wildfire impacts on hydrological processes at the catchment level (Literature Review).pdf```
+  >> **IDs of Files Contained:** ```Wildfire impacts on hydrological processes (Presentation Slides).pdf``` ```Wildfire impacts on hydrological processes at the catchment level (Literature Review).pdf``` ```README.md```
