@@ -1,0 +1,458 @@
+\documentclass[]{article}
+\setcounter{secnumdepth}{0}
+\usepackage{xcolor}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage{gensymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage{hhline}
+\usepackage{enumitem}
+\usepackage{commath}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{esvect}
+\usepackage{listings}
+\usepackage[export]{adjustbox}
+\usepackage{multirow}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage{float}
+\usepackage{csquotes}
+\usepackage{color}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linktoc=all,     
+	linkcolor=black,
+}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+\definecolor{lgrey}{RGB}{242, 242, 242}
+\definecolor{lblue}{RGB}{214, 220, 228}
+
+% TITLE BLOCK
+
+\title{\large{McMaster University Winter 2021} \LARGE \\* CIVENG 3M03: Municipal Hydraulics}
+\date{}
+\renewcommand*\contentsname{Table of Contents}
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	\begin{center}
+		\vspace{3.7cm}
+		\Huge Term Project: Design of a Water \\* Distribution System\\* \vspace{1.1cm}
+		\Large Group 17 \\* \vspace{0.9cm}
+		\begin{align}
+		\nonumber
+		\large 
+		\text{Megan Falco}, \; \text{400174977}\\ \nonumber \large
+		\text{Endi Hajdari},  \; \text{400129292} \\ \nonumber \large
+		\text{Anthony Kozic}, \; \text{400068340} \\ \nonumber \large
+		\text{Emily Yeo}, \; \text{400129107}
+		\end{align} \\* \vspace{3.1 cm}
+		\large Due: March 26, 2021; 4:30 pm (EST) 
+	\end{center}	
+	\newpage
+	\doublespacing
+	\tableofcontents
+	\singlespacing
+	\newpage 
+	\doublespacing
+	\listoffigures
+	\listoftables
+	\singlespacing
+	\newpage 
+	\section{1 Introduction}
+	\subsection{1.0 Objective}
+	\noindent The aim of this project was to design a water distribution system for a town with a population of 14,000 people given various physical and flow constraints. To verify that both the system constraints and design distribution standards were met, a steady-state analysis was subsequently performed. 
+	\subsection{1.1 Design Data}
+	\subsubsection{1.1.1 General Design Parameters}
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|M{7 cm}|M{8.5cm}|}
+			\hline
+			\cellcolor{lblue} Design Parameter & \cellcolor{lblue} Value/Description of Design Parameter \\ \hline
+			Design Population, $D_{{p}}$  & 184,000 people \\ \hline
+			Fire Flow Requirement, $Q_{{f}}$ & 35 L/s \\ \hline
+			Maximum Hour Peak Factor, $P_{{f,h}}$ &  $2.4 \times \text{Average Day}$  \\ \hline
+			Maximum Day Peak Factor, $P_{{f,d}}$ & $1.8 \times \text{Average Day}$ \\ \hline
+			Rate of Water Consumption, $W_c$ & 300 Lpcd   \\ \hline
+			Topography of the Town & Flat (with the exception of the reservoir location) \\ \hline
+			Hazen-Williams Coefficient, $C$ & 135 \\ \hline
+			Maximum Allowable Velocity, $v_{\text{max}}$ & 3 m/s \\ \hline
+			Minimum Working Pressure in Pipes, $P_{\text{min}}$ & 40 m under design flow; 30 m under at the location of a fire \\ \hline
+			Maximum Working Pressure in Pipes, $P_{\text{max}}$ & 70 m under the design flow \\ \hline
+		\end{tabular}
+		\caption[Given Design Data]{A summary of the given design data. Note that the design population was determined using the student number 400129292 (see A.1.1 for more details).}
+	\end{table}
+	\subsubsection{1.1.2 Skeleton Schematic of the Water Distribution System}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=5.1in]{1}
+		\caption[Given Skeleton Schematic of the Water Distribution System]{The given skeleton schematic of the water distribution system. Note that the schematic is not indicative of scale and that the $N_i$'s denote the junction nodes. We are assuming that an adequate supply of water is available from the reservoir depicted above.}
+	\end{figure} 
+	\subsubsection{1.1.3 Individual Pipe Lengths}
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|M{3cm}|M{2.5cm}|}
+		\hline
+		\cellcolor{lgrey}Pipe, $P_i$ & \cellcolor{lgrey} Length of Pipe, $L_i$ (m) \\ \hline
+		Pipe 1, $P_1$  & 200 \\ \hline
+		Pipe 2, $P_2$  & 300 \\ \hline
+		Pipe 3, $P_3$ & 200  \\ \hline
+		Pipe 4, $P_4$ & 280 \\ \hline
+		Pipe 5, $P_5$ & 120 \\ \hline
+		Pipe 6, $P_6$ & 290 \\ \hline
+		Pipe 7, $P_7$ & 80 \\ \hline
+		Pipe 8, $P_8$ & 300 \\ \hline
+		Pipe 9, $P_9$ & 200 \\ \hline
+		Pipe 10, $P_{10}$ & 310 \\ \hline
+		Pipe 11, $P_{11}$ & 50 \\ \hline
+	\end{tabular}
+	\caption[Pipe Lengths of the Water Distribution System]{The pipe lengths of the skeleton water distribution system.}
+\end{table}
+\subsubsection{1.1.4 Individual Junction Node Water Demand}
+	\begin{table}[H]
+	\centering
+	\begin{tabular}{|M{3cm}|M{3cm}|}
+		\hline
+		\cellcolor{lgrey} Node, $N_i$ & \cellcolor{lgrey} Fraction of Total Water Demand \\ \hline
+		Node 1, $N_1$  & 0.1 \\ \hline
+		Node 2, $N_2$  & 0.2 \\ \hline
+		Node 3, $N_3$ & 0.1  \\ \hline
+		Node 4, $N_4$ & 0.1 \\ \hline
+		Node 5, $N_5$ & 0.2 \\ \hline
+		Node 6, $N_6$ & 0.1 \\ \hline
+		Node 7, $N_7$ & 0.1 \\ \hline
+		Node 8, $N_8$ & 0.1 \\ \hline
+	\end{tabular}
+	\caption[Water Demand at Nodes]{The water demand at individual nodes as fractions of the total water demand of the town.}
+\end{table}
+	\subsection{1.2 Methods}
+\noindent The aim of the project was met via the implementation of four interconnected sets of analyses: a water demand analysis, a constant head analysis, a flow rate and flow direction analysis, and a distribution network analysis.
+\subsubsection{1.2.1 Water Demand Analysis} 
+\noindent The first involved performing a water demand analysis of the entire town to determine the average day, maximum day, and minimum day consumption rates. The design data used to do this included the design population ($D_p$), the maximum hour peak factor ($P_{{f,h}}$), the maximum day peak factor ($P_{{f,d}}$), and the rate of water consumption ($W_c$) outlined in Table 1. Refer to \textbf{Appendix A}, sections \textbf{A.1.1}, \textbf{A.1.2}, and \textbf{A.1.3} for the full mathematical process used in this analysis. Subsequently, the design withdraw rate at each junction node was found using the Design Distribution Standards.\footnote{As per the course lecture notes.}Moreover, the total demand of the town was determined based on comparing the sum of the maximum day demand and the fire flow to the maximum hour flow. The total demand was then apportioned to each of the individual junction nodes based on the fractions outlined in Table 3. See \textbf{Appendix A}, sections \textbf{A.2.1} and \textbf{A.2.2} for the full mathematical process.
+\subsubsection{1.2.2 Minimum Constant Head Analysis} 
+\noindent As outlined in Table 1, the minimum working pressure of the pipes in the system is 40 m under the design flow and the maximum is 70 m under the design flow. To design conservatively, the maximum head value of 70 m was selected based on the given conditions. 
+\subsubsection{1.2.3 Flow Rate and Flow Direction Analysis} 
+\noindent
+To determine the initial flow rates and diameters for each of the pipes in the system, the direction of flow was first established (see Figure 2). Note that the directions of the flow were assumed and that the clockwise green arrows indicate the direction in which the values of head loss and flow are positive. The blue arrows represent the assumed direction of the flow. \\* 
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=5.1in]{22}
+	\caption[Schematic Depicting Flow Direction]{The assumed direction of flow throughout the water distribution system. Note that the schematic is not indicative of scale. Also note that the $N_i$'s denote the junction nodes, the $C_i$'s denote the withdrawal rates at each of the nodes, $Q_f$ denotes the fire flow, and the red dot indicates the selected location of the fire flow.}
+\end{figure}
+\vspace{0.5 cm}
+\noindent After assuming the direction of flow throughout the pipe network, the fire flow demand was assigned to Node 7. It was placed here because of its distance relative to the source (i.e., large distance between the source most likely will create the worst case scenario for the pipe system by yielding the lowest residual pressure). Additionally, only one was placed as we are assuming that \textit{one} fire is expected at a time. \\* \\* 
+\noindent Having designated a location for the fire demand and assigned each pipe a flow direction, the continuity equations for each junction node were determined. Note that by applying these equations, we are assuming that the flow is incompressible, steady, and that minor frictional/viscous losses are negligible. Refer to \textbf{A.3.1} to see this system of equations, as well as the detailed steps and assumptions applied to solve for each flow rate value. Once the initial flow rates through each pipe were assumed and satisfied the continuity conditions, the diameters for each pipe were determined. See \textbf{A.3.2} for more details.
+\subsubsection{1.2.4 Hardy Cross Iterative Method} 
+\noindent Once the above initial parameters were computed, the Hardy Cross iterative method was applied to determine the flow in the pipe network, as well as determine the desired diameter for each pipe. After the initial diameters and flow rates were determined, this method was applied to adjust the flow rates, whilst also simultaneously decreasing the diameters of each of the pipes. The initial values for diameter and flow rate were used to compute the slope, head loss, and correction factors. The correction factors were used to adjust the flow rates and subsequently, the diameters of each pipe. It is important to note that an average velocity of 1.2 m/s was assumed (lower than the maximum of 3 m/s) in order to calculate the diameters of the pipes in each iteration. This process was repeated until one of the system constraints was violated and when the correction factor in each loop approached zero. Refer to \textbf{A.4} to see how each component involved was computed, as well as \textbf{Appendix B} for each iteration performed.  
+
+\section{2 Results and Discussion}
+\subsection{2.0.1 Water Demand Analysis}
+\noindent Table 4 below summarizes the results of the water demand analysis. It is important to note that the Design Distribution Standards were used to determine the design flow. Based on these standards, the influent flow should be the greater of maximum hour or maximum day plus fire flow so as to be able to keep up with the peak hour flows, as well as accommodate the water demands in the event of a fire.    
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|M{5cm}|M{5cm}|}
+		\hline
+		\cellcolor{lgrey} Water Demand Parameter & \cellcolor{lgrey} Water Demand Value ($\text{m}^3/\text{s}$) \\ \hline
+		Average Day  &  0.6388888888 \\ \hline
+		Maximum Day & 1.15 \\ \hline
+		Maximum Hour & 1.533333333  \\ \hline
+		Maximum Day + Fire Flow & 1.185 \\ \hline
+		\cellcolor{lblue} Total Demand & \cellcolor{lblue} 1.533333333 \\ \hline
+	\end{tabular}
+	\caption[Water Demand Analysis Results]{The average day, maximum day, maximum hour, and total demand values for the town.}
+\end{table}
+
+\subsection{2.0.2 Flow Rate and Flow Direction Analysis}
+\noindent Table 5 and Table 6 below respectively summarize the results obtained for the demand at each junction node, as well as the initial flow rates and diameters of each pipe in the system.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|M{4cm}|M{4cm}|M{4cm}|}
+		\hline
+		\cellcolor{lgrey} Node, $N_i$ & \cellcolor{lgrey} Fraction of Total Water Demand & \cellcolor{lgrey} Node Withdrawal Rate, $C_i$ ($\text{m}^3/\text{s}$) \\ \hline
+		1  &  0.1 & 0.153333333 \\ \hline
+		2 & 0.2 & 0.306666667 \\ \hline
+		3 &  0.1 & 0.153333333 \\ \hline
+		4 &  0.1 & 0.153333333 \\ \hline
+		5  &  0.2 & 0.306666667 \\ \hline
+		6 &  0.1 &  0.153333333  \\ \hline
+		7 &  0.1 & 0.153333333 \\ \hline
+		8 &  0.1 & 0.153333333 \\ \hline
+	\end{tabular}
+	\caption[Junction Node Withdrawal Demand Rate]{The withdrawal demand at each node determined using the total demand and fractions of the total water demand. See \textbf{A.2.2} for more details.}
+\end{table}
+\vspace{0.25 cm}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|M{4cm}|M{4cm}|M{4cm}|}
+		\hline
+		\cellcolor{lgrey} Pipe, $P_i$ & \cellcolor{lgrey} Assumed Flow, $Q_i$ ($\text{m}^3/\text{s}$) & \cellcolor{lgrey} Pipe Diameter, $D_i$ ($\text{m}$) \\ \hline
+		1  &  0.12375 & 0.362357321 \\ \hline
+		2 & 1.29125 & 1.17049511 \\ \hline
+		3 &  0.338958333 & 0.599704895 \\ \hline
+		4 &  0.645625 & 0.827665029 \\ \hline
+		5  &  0.492291667 & 0.722729328 \\ \hline
+		6 &  0.338958333 &  0.599704895  \\ \hline
+		7 &  0.2475 & 0.512450638 \\ \hline
+		8 &  0.12375 & 0.362357321 \\ \hline
+		9 &  0.094166667 & 0.316091658\\ \hline
+		10 &  0.094166667 & 0.316091658 \\ \hline
+		11 &  1.568333333 & 1.289981918 \\ \hline
+	\end{tabular}
+	\caption[Initial Flow Rates and Diameters]{The assumed values of flow and diameter for each pipe in the network. Refer to \textbf{A.3} for more details.}
+\end{table}
+\subsection{2.0.3 Distribution Network Analysis} 
+Figure 3 below depicts the results of the final iteration using the Hardy Cross Method. Note that these final diameters and flow rates meet all system requirements and constraints. To see each iteration, refer to \textbf{Appendix B}.
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{R1}
+	\caption[Hardy Cross Method: Results]{The results after three iterations using the Hardy Cross Method.}
+\end{figure}
+\section{3 Conclusion}
+In conclusion, a water distribution system for a small town was able to be designed to perform a single period analysis in order to verify that system constraints were met. As can be seen by the $q_i$ values, the initial flow rates and diameters that were assumed were quite accurate. Also, the final system values satisfied all system constraints. A next step for this design could be a cost analysis.
+\newpage
+\section{Appendix A: Calculations}
+\subsection{A.1 Demand Analysis Calculations}
+\subsubsection{A.1.1 Average Day Demand}
+To determine the average day demand, the design population, $D_p$ is required. We obtain $D_p$ as follows: \\* \\* 
+\begin{equation}
+\text{Student Number} \; = \; 400129292 \; \implies \; D_p \; = \; (92)(2000) \; = \; 184,000 \; \text{people}.
+\end{equation} \\* \\* 
+As given in Table 1, the rate of water consumption, $W_c = 300$ Lpcd. Substituting this value and the design population obtained in (1) yields \\*
+\begin{align}
+\begin{array}{rcl}
+\text{Average Day} &=& D_p \times W_c \\ \\  
+\text{Average Day} &=& 184,000 \times \Bigg( \dfrac{300 \; \text{L}}{\text{Day}}\Bigg) \Bigg(\dfrac{1 \; \text{m}^3}{1000 \; \text{L}}\Bigg) \Bigg(\dfrac{1\; \text{Day}}{24 \; \text{hr}}\Bigg) \Bigg(\dfrac{1 \; \text{hr}}{3600 \; \text{s}}\Bigg) \\ \\
+\text{Average Day} &\approx& 0.6388888888 \; \text{m}^3/\text{s}. 
+\end{array}
+\end{align} \\*
+\subsubsection{A.1.2 Maximum Day Demand}
+Using the maximum day peak factor, $P_{f,d}$, provided in Table 1 and the average day demand computed in (2), the maximum day demand is determined as follows \\* 
+\begin{align}
+\begin{array}{rcl}
+\text{Maximum Day} &=& P_{f,d} \times \text{Average Day} \\ \\  
+\text{Maximum Day} &=& 1.8 \times 0.6388888888 \; \text{m}^3/\text{s}. \\ \\
+\text{Maximum Day} &\approx& 1.15 \; \text{m}^3/\text{s}. 
+\end{array}
+\end{align} \\* 
+\subsubsection{A.1.3 Maximum Hour Demand}
+Using the maximum hour peak factor, $P_{f,h}$, provided in Table 1 and the average day demand computed in (2), the maximum hour demand is determined as follows \\* 
+\begin{align}
+\begin{array}{rcl}
+\text{Maximum Hour} &=& P_{f,h} \times \text{Average Day} \\ \\  
+\text{Maximum Hour} &=& 2.4 \times 0.6388888888 \; \text{m}^3/\text{s}. \\ \\
+\text{Maximum Hour} &\approx& 1.533333333 \; \text{m}^3/\text{s}. 
+\end{array}
+\end{align} \\* 
+\subsection{A.2 Design Flow and Junction Withdrawal Rates}
+\subsubsection{A.2.1 Total Demand} 
+By the Distribution System Design Standards, we have that the recommended design flow will be \\* \\*
+\begin{equation}
+D_f = \text{max}\{\text{Maximum Day}+Q_f, \; \text{Maximum Hour}\},
+\end{equation} \\* 
+where $D_f$ denotes the design flow and $Q_f$ denotes the fire flow. Substituting the values obtained in (3) and (4), as well as the value of $Q_f$ given in Table 1 into (5) results in \\* 
+\begin{align}
+\begin{array}{rcl}
+D_f &=& \text{max}\{1.15 \; \text{m}^3/\text{s} + 0.035 \; \text{m}^3/\text{s}, \; 1.533333333 \; \text{m}^3/\text{s}\} \\ \\
+D_f &=& \text{max}\{1.185 \; \text{m}^3/\text{s}, \; 1.533333333 \; \text{m}^3/\text{s}\} \\ \\
+D_f &=&  1.533333333  \; \text{m}^3/\text{s}. 
+\end{array}
+\end{align} \\* 
+\subsubsection{A.2.2 Junction Withdrawal Rates}
+To determine the junction withdrawal rates, the total demand, $D_f$, found in (6) was apportioned to each node $N_i$ based on the fractions outlined in Table 3 using the following general equation \\* 
+\begin{equation}
+\nonumber
+C_i \; = \; (\text{Fraction of Total Water Demand at Node} \; N_i) \times D_f,
+\end{equation} \\* 
+where $i \in \mathbb{Z}$ and $1<i<8$. For example, to find the withdrawal rate, $C_1$, at junction node 1, $N_1$: \\* 
+\begin{equation}
+\nonumber
+C_1 \; = \; 0.1 \times (1.533333333  \; \text{m}^3/\text{s}) \; = \; 0.1533333333 \; \text{m}^3/\text{s}. 
+\end{equation}  \\*
+\subsection{A.3 Initial Flow Rate and Diameter Calculations}
+\subsubsection{A.3.1 Continuity Equations at Each Node}
+The general continuity equation at each node may be written as follows \\* 
+\begin{equation}
+\nonumber
+Q_{i,\text{in}} - C_i \; = \; Q_{i,\text{out}},
+\end{equation} \\* 
+or equivalently \\* 
+\begin{equation}
+Q_{i,\text{in}} -  Q_{i,\text{out}} \; = \; C_i,
+\end{equation} \\* 
+where $Q_{i,\text{in}}$ denotes the flow that is coming into junction node $i$, $Q_{i,\text{out}}$ denotes the flow that is going out of junction node $i$, and $C_i$ is the demand at node $i$ as computed in A.2.2. Applying (7) to each node and assuming the same direction of flow depicted in Figure 2, we obtain the following system of equations (see next page) \\*
+\begin{align}
+\nonumber
+\text{\textbf{Node 1:}} \; \; \; C_1 &= Q_{11} -Q_{1} - Q_2 \\ \nonumber \\ \nonumber 
+\text{\textbf{Node 2:}} \; \; \; C_2 &= Q_2-Q_3-Q_4  \\ \nonumber \\\nonumber 
+\text{\textbf{Node 3:}} \; \; \; C_3 &= Q_4-Q_5 \\ \nonumber \\\nonumber 
+\text{\textbf{Node 4:}} \; \; \; C_4 &= Q_5-Q_6  \\ \nonumber \\\nonumber 
+\text{\textbf{Node 5:}} \; \; \; C_5 &= Q_3+Q_6-Q_8-Q_7  \\ \nonumber \\\nonumber 
+\text{\textbf{Node 6:}} \; \; \; C_6 &= Q_7-Q_{10} \\ \nonumber \\\nonumber 
+\text{\textbf{Node 7:}} \; \; \; C_7 &= Q_9+Q_{10} - Q_f \\ \nonumber \\\nonumber 
+\text{\textbf{Node 8:}} \; \; \; C_8 &= Q_1+Q_8-Q_9.
+\end{align} \\* 
+Note that Node 7 is the location of the fire flow, hence the $Q_f$ term. To solve the system of equations above, we use the values of $C_i$ tabulated in Table 5, as well as the given value of $Q_f$. We begin at \textbf{Node 7:} \\*
+\begin{align}
+\nonumber
+\begin{array}{rcl}
+C_7 &=& Q_9+Q_{10} - Q_f \\ \\
+0.153333333 &=& Q_9+Q_{10} - 0.035 \\ \\ 
+0.188333333 &=& Q_9+Q_{10}.
+\end{array} 
+\end{align} \\* 
+Assuming that $Q_9 = Q_{10}$, we have \\* \\* 
+\begin{equation}
+0.188333333 \; = \; 2Q_9 \; \implies \; Q_9 \; = \; Q_{10} \; = \; 0.094166667 \; \text{m}^3/\text{s}.
+\end{equation} \\* 
+Using the value of $Q_9$ obtained in (8), we proceed to \textbf{Node 8:} \\* 
+\begin{align}
+\nonumber
+\begin{array}{rcl}
+C_8 &=& Q_1+Q_{8} - Q_9 \\ \\
+0.153333333 &=&  Q_1 +Q_{8} - 0.094166667  \\ \\ 
+0.2475 &=& Q_1+Q_{8}.
+\end{array} 
+\end{align} \\* \\* 
+Assuming that $Q_1 = Q_{8}$, we have \\* \\*
+\begin{equation}
+0.188333333 \; = \; 2Q_1 \; \implies \; Q_1 \; = \; Q_{8} \; = \; 0.12375
+ \; \text{m}^3/\text{s}.
+\end{equation} 
+\newpage
+\noindent Using the value of $Q_{10}$ obtained in (8), we solve for the unknown in \textbf{Node 6:} \\*
+\begin{align}
+\begin{array}{rcl}
+C_6 &=& Q_7-Q_{10} \\ \\
+0.153333333 &=&  Q_7 - 0.094166667  \\ \\ 
+Q_7 &=& 0.2475 \; \text{m}^3/\text{s}.
+\end{array} 
+\end{align} \\* \\*
+Now, using the values of $Q_7$ and $Q_8$ obtained in (10) and (9), respectively, we may solve \textbf{Node 5:} \\* 
+\begin{align}
+\nonumber
+\begin{array}{rcl}
+C_5 &=& Q_3+Q_6-Q_8-Q_7 \\ \\
+0.306666667 &=&  Q_3+Q_6 - 0.12375 - 0.2475 \\ \\
+0.677916667 &=& Q_3+Q_6 \; \text{m}^3/\text{s}.
+\end{array} 
+\end{align}\\* \\* 
+Assuming that $Q_3 = Q_{6}$, we have \\* \\*
+\begin{equation}
+0.677916667 \; = \; 2Q_3 \; \implies \; Q_3 \; = \; Q_{6} \; = \; 0.338958333
+\; \text{m}^3/\text{s}.
+\end{equation} \\* 
+Using the value of $Q_6$ obtained in (11), we solve for the one unknown in \textbf{Node 4:} \\*
+\begin{align}
+\begin{array}{rcl}
+C_4 &=& Q_5-Q_6 \\ \\
+0.153333333 &=&  Q_5 - 0.338958333 \\ \\ 
+Q_5 &=& \; 0.492291667 \; \text{m}^3/\text{s}.
+\end{array} 
+\end{align} \\* \\* 
+Using the value of $Q_5$ obtained in (12), we solve for the one unknown in \textbf{Node 3:} \\*
+\begin{align}
+\begin{array}{rcl}
+C_3 &=& Q_4-Q_5 \\ \\
+0.153333333 &=&  Q_4 - 0.492291667 \\ \\ 
+Q_4 &=& \; 0.645625 \; \text{m}^3/\text{s}.
+\end{array} 
+\end{align} \\* \\* 
+Using the values of $Q_4$ and $Q_3$ obtained in (13) and (11), respectively, we solve for the one unknown in \textbf{Node 2:} \\*
+\begin{align}
+\begin{array}{rcl}
+C_2 &=& Q_2-Q_3-Q_4 \\ \\
+0.306666667 &=&  Q_2 - 0.338958333 -0.645625 \\ \\ 
+Q_2 &=& \; 1.29125 \; \text{m}^3/\text{s}.
+\end{array} 
+\end{align}
+All that remains is to use the values of $Q_1$ and $Q_2$ determined in (9) and (14), respectively, to solve for the last unknown in \textbf{Node 1:} \\*
+\begin{align}
+\begin{array}{rcl}
+C_1 &=& Q_{11}-Q_1-Q_2 \\ \\
+0.153333333 &=&  Q_{11} -0.12375 - 1.29125 \\ \\ 
+Q_{11} &=& \; 1.568333333 \; \text{m}^3/\text{s}.
+\end{array} 
+\end{align} \\* 
+\subsubsection{A.3.2 Initial Diameter Calculations}
+To compute the initial diameter of each circular pipe $i$, we began with the following general equation \\* \\*
+\begin{equation}
+Q_i \; = \; VA_i \; \implies \; \dfrac{Q_i}{V} \; = \; A_i \; \implies \; \dfrac{Q_i}{V} \; = \; \dfrac{\pi D_i^2}{4} \; \implies \; D_i \; = \; \sqrt{\dfrac{4Q_i}{\pi V}},
+\end{equation} \\* \\*
+where $Q_i$ denotes the initial flow rates of each pipe $i$ determined in A.3.1, and $V$ denotes the average velocity that was assumed. For example, the diameter of Pipe 1, $D_1$, was determined using equation (16), the value of $Q_1$ computed in (9), and $V=1.2$ m/s as follows \\* \\*
+\begin{equation}
+\nonumber
+D_1\; = \; \sqrt{\dfrac{4Q_1}{\pi V}} \; = \; \sqrt{\dfrac{4(0.12375)}{(1.2) \pi}} \; \approx \; 0.362357321 \; \text{m}.
+\end{equation} \\*
+\subsection{A.4 Hardy Cross Iterative Calculations}
+\subsubsection{A.4.1 Diameter Calculations}
+The process to compute the initial diameter of each pipe and a sample calculation are outlined in A.3.2 above. The same formula depicted in (16) was used to updated the diameter during each iteration performed. It is important to note that the absolute value of $Q_i$, $\abs{Q_i}$, was used to compute the diameter of every pipe, for every iteration. \\* 
+\subsubsection{A.4.2 Slope Calculations}
+To determine the slope, $S_i$ at each pipe $P_i$, the Hazen-William's equation was re-arranged as follows \\* 
+\begin{equation}
+S_i \; = \; \Bigg(\dfrac{Q_i}{0.278CD_i^{2.63}}\Bigg)^{\big(\frac{1}{0.54}\big)},
+\end{equation} \\* \\* 
+where $D_i$ denotes the diameter of pipe $i$, $C$ denotes the Hazen-William's coefficient, and $Q_i$ denotes the flow rate of pipe $i$. Note that here, $i \in \mathbb{Z}$ and $1 \leq i \leq 10$. For example, for pipe 1 (assumed conditions), the slope was found by substituting $Q_1$, $D_1$, and the given $C$ value into (17) as so (see next page) \\* \\* 
+\begin{equation}
+S_1 \; = \; \Bigg(\dfrac{Q_1}{0.278CD_1^{2.63}}\Bigg)^{\big(\frac{1}{0.54}\big)} \; = \; \Bigg(\dfrac{0.12375}{(0.278)(135)(0.362357321)^{2.63}}\Bigg)^{\big(\frac{1}{0.54}\big)} \; \approx \; 0.003557773 \; \text{m/m}.
+\end{equation} \\*
+\subsubsection{A.4.3 Head Loss Calculations}
+To determine the head loss for each pipe $i$, $H_i$, the following formula was used \\* \\* 
+\begin{equation}
+H_i \; = \; S_i \times L_i,
+\end{equation} \\* 
+where $S_i$ denotes the slope of pipe $i$ and $L_i$ denotes the length of pipe $i$. Again, here we have that $i \in \mathbb{Z}$ and $1 \leq i \leq 10$. For example, for pipe 1 (assumed conditions), the head loss $H_i$ was found by substituting the $S_1$ computed in (18) and the given value of $L_1$ into (19) as follows \\* \\* 
+\begin{equation}
+H_1 \; = \; S_1 \times L_1 \; = \; 0.003557773 \times 200 \; \approx \; -0.711554542 \; \text{m}. 
+\end{equation} \\* 
+Note that a negative sign was added since the direction of $Q_1$ was taken to be counterclockwise. \\* 
+\subsubsection{A.4.4 Correction Factor Calculations}
+To calculate the correction factor $q_i$ for each pipe $i$ in the system that was only in one loop, the following formula was used \\* 
+\begin{equation}
+q_i \; = \; \dfrac{-\sum_{i=1}^{n} H_i}{1.85 \Bigg(\sum_{i=1}^{n} \frac{H_i}{Q_i}\Bigg)},
+\end{equation}
+where $H_i$ and $Q_i$ are head loss and flow rate values at pipe $i$. For example, for pipe 1 (assumed conditions, loop I), the correction factor $q_1$ was found using (21) as follows \\* \\* 
+\begin{equation}
+\nonumber
+q_1 \; = \; \dfrac{-\sum_{i=1}^{4} H_i}{1.85 \Bigg(\sum_{i=1}^{4} \frac{H_i}{Q_i}\Bigg)} \; = \; \dfrac{-1.022855872}{(1.85)(15.75156427)} \; \approx \; -0.035100962 \; \text{m}^3/\text{s}.
+\end{equation} \\* \\* 
+The correction factor was used to update the flow rate for each pipe in each new iteration. For every pipe $i$ in the system that appeared in more than one loop, the correction factor was computed as \\* 
+\begin{equation}
+q_{\text{final}} \; = \; q_i - q_{\text{shared}}.
+\end{equation} \\* 
+For example, the correction factor for pipe 3 (assumed conditions, loop 1) was found using (22) as follows \\*
+\begin{equation}
+\nonumber
+q_{\text{final}} \; = \; q_3 - q_{\text{shared}} \; = \; -0.035100962 - (-0.089040121) \; = \; 0.053939159 \; \text{m}^3/\text{s},
+\end{equation} \\* 
+where $q_3$ was computed in the same manner as $q_1$, via the application of equation (21).
+\newpage
+\section{Appendix B: Distribution Network Analysis Figures}
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{B1}
+	\caption[Hardy Cross Method: Assumed Conditions]{The assumed conditions/set-up of the Hardy Cross Method.}
+\end{figure}
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{B2}
+	\caption[Hardy Cross Method: First Iteration]{The first iteration of the Hardy Cross Method after applying the first correction factors.}
+\end{figure}
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{B3}
+		\caption[Hardy Cross Method: Second Iteration]{The second iteration of the Hardy Cross Method after applying the second correction factors.}
+	\end{figure}
+		\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{B4}
+	\caption[Hardy Cross Method: Third Iteration]{The third and final iteration of the Hardy Cross Method after applying the third correction factors. Note how $q \approx 0$.}
+\end{figure}
+	
+\end{document}
