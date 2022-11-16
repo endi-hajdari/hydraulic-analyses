@@ -1,7 +1,8 @@
 # Hydraulic Analyses
+This repository contains **7 different projects** related to wastewater treatment processes, hydraulic and hydrological modelling of various structures/systems of different scales, as well as the design and analysis of municipal hydraulic systems. Each of these projects were affliated with my undergraduate studies in Civil Engineering at McMaster University and/or my research experiences.
 
 ## Repository Breakdown
-There are currently **6** main folders in this repository, each one corresponding to a different hydraulic project/analysis. Below is a breakdown of the subfolders and files contained in each folder in this repository. Note that each main folder contains a ```README.md``` file that provides a brief overview of each project/analysis.
+There are currently **7 main folders** in this repository, each one corresponding to a different hydraulic project/analysis. Below is a breakdown of the subfolders and files contained in each folder in this repository. Note that each main folder contains a ```README.md``` file that provides a brief overview of each project/analysis.
    
  > **Main Folder ID:** ```Activated Sludge Model Mathematical Development```
  >
