@@ -3,7 +3,7 @@ This repository contains **7 different projects** related to wastewater treatmen
 
 ## Project Breakdown
 |  Project ID 	|   Project Category	| Language/Software Used	|
-|---	|---	|---	|
+|:-------------:	|:-------------:	|:-------------:|
 |Activated Sludge Mathematical Model Development	|  Wastewater treatment processes 	|  ```TeX``` ```Excel``` ```VBA```	|
 |Analysis of the Hydraulic Characteristics of a Proposed Bridge Development	| Hydraulic modelling, hydraulic data analysis, structural analysis | ```TeX``` ```HEC-RAS``` ```ArcGIS``` 	|
 |Design of a Municipal Water Distribution System |Municipal hydraulic design, municipal planning, municipal hydraulic data analysis |  ```TeX``` ```Excel``` ```VBA``` |
