@@ -1,0 +1,368 @@
+\documentclass[]{article}
+\setcounter{secnumdepth}{0}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{commath}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{esvect}
+\usepackage{listings}
+\usepackage[export]{adjustbox}
+\usepackage{multirow}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage{float}
+\usepackage{csquotes}
+\usepackage{color}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linktoc=all,     
+	linkcolor=black,
+}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+\def\tikzmark#1{\tikz[remember picture,overlay]\node[inner ysep=0pt,anchor=base](#1){\strut};}
+
+% TITLE BLOCK
+
+\title{\large{McMaster University Winter 2021} \huge \\* CIVENG 4V04: Term Project \\* \LARGE Activated Sludge Model Development (Part A)}
+\author{Endi Hajdari \\* Student ID: 400129292}
+\date{Due: March 10, 2021; 11:59 pm (Eastern Time)}
+\begin{document}
+	
+	\maketitle
+	\doublespacing
+	\tableofcontents
+	\singlespacing
+	\newpage
+	\section{Mass Balances on Soluble Components}
+	\subsection{Mass Balance on Soluble Substrates}
+	\vspace{0.25cm}
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{Ss}
+		\caption{Schematic diagram of the mass balance set-up for $S_{\text{S}}$ assuming an Activated Sludge System.}
+	\end{figure} 
+		\par\noindent\rule{\textwidth}{0.4pt} \vspace{0.1 cm} \\*
+	Given the CAS system depicted in Figure 1 above: \vspace{0.05 cm} \begin{enumerate}[label=(\roman*)]
+		\item Let $S_{\text{S}}$ denote the effluent soluble substrate concentration (in mg-COD/L);
+		\item Let $S_{\text{S,0}}$ denote influent soluble substrate concentration (in mg-COD/L);
+		\item Let $Q$ denote the flowrate of the influent (in $\text{m}^3/\text{d}$);
+		\item Let $Q_{\text{w}}$ denote the waste sludge flowrate (in $\text{m}^3/\text{d}$).
+	\end{enumerate}
+	\par\noindent\rule{\textwidth}{0.4pt} \\* \\*
+	\noindent To begin performing a mass balance on $S_{\text{S}}$, we make note of our first assumption (which has already been depicted in Figure 1). That is, in the secondary clarifier, \textit{no separation} of soluble components occurs (i.e., WAS and effluent $S_{\text{S}}$ concentrations are the same). Now, by applying the Law of Conservation of Mass on the defined system boundary to determine $S_{\text{S}}$, we obtain \\* 
+	\begin{align}
+	\begin{array}{rcl}
+	[\text{Change}] &=& [\text{Inlet}] - [\text{Outlet}] + [\text{Reaction Expression(s)}] \\ \\
+	V \cdot \dfrac{dS_{\text{S}}}{dt} &=& QS_{\text{S,0}} - [(Q-Q_{\text{w}})S_{\text{S}} + Q_{\text{w}}S_{\text{S}}] + [\text{Reaction Expression(s)}] \\ \\
+	V \cdot \dfrac{dS_{\text{S}}}{dt} &=& QS_{\text{S,0}} - QS_{\text{S}} + Q_{\text{w}}S_{\text{S}} - Q_{\text{w}}S_{\text{S}} + [\text{Reaction Expression(s)}] \\ \\
+	V \cdot \dfrac{dS_{\text{S}}}{dt} &=& Q(S_{\text{S,0}} - S_{\text{S}}) + [\text{Reaction Expression(s)}].
+	\end{array}
+	\end{align} \\* \\* 
+	Applying the steady state assumption to the equation above implies that $\dfrac{dS_{\text{S}}}{dt}=0$. So equation (1) simplifies to the following \\* \\* 
+	\begin{equation}
+	0 \; = \; Q(S_{\text{S,0}} - S_{\text{S}}) + [\text{Reaction Expression(s)}].
+	\end{equation} \\* \\* 
+	To determine the reaction terms in equation (2), we first refer to Figure 2 below. 
+	\vspace{0.25cm}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1.5 in]{R1}
+		\caption{Reaction diagram in the perspective of $S_{\text{S}}$ developed from the reaction chart provided for the term project on Avenue to Learn.} 
+	\end{figure} 
+	\vspace{0.25cm} 
+	\noindent Based on the kinetic expressions associated with each of the individual reactions shown above, we have \\* \\* 
+\begin{align}
+\nonumber
+[\text{Reaction}] \; &= \; V \cdot  \dfrac{dS_{\text{S}}}{dt}\biggr\rvert_{\text{Utilization}} + \; \;  \; \; V \cdot \dfrac{dS_{\text{S}}}{dt}\biggr\rvert_{\text{Hydrolysis}} \\ \\ \nonumber \; [\text{Reaction}] &= \;  V\Bigg(\dfrac{dS_{\text{S}}}{dt}\biggr\rvert_{\text{Utilization}} + \; \;  \; \; \dfrac{dS_{\text{S}}}{dt}\biggr\rvert_{\text{Hydrolysis}}\Bigg) \\ \nonumber \\ \nonumber
+[\text{Reaction}] \; &= \; 
+\begin{aligned}[t]
+&V \Bigg\{-\dfrac{1}{Y_{\text{H}}}\Bigg[\mu_{\text{m,H}} \Bigg(\dfrac{S_{\text{S}}}{K_{\text{SS}}+S_{\text{S}}}\Bigg)\Bigg(\dfrac{S_{\text{O}}}{K^{\text{H}}_{\text{O}}+S_{\text{O}}}\Bigg)X_{\text{H}} \\ \\
+&+ \mu_{\text{m,H}}\Bigg(\dfrac{S_{\text{S}}}{K_{\text{SS}}+S_{\text{S}}}\Bigg)\Bigg(\dfrac{S_{\text{NO3}}}{K_{\text{NO3}}+S_{\text{NO3}}}\Bigg)\Bigg(\dfrac{K^{\text{H}}_{\text{O}}}{K^{\text{H}}_{\text{O}}+S_{\text{O}}}\Bigg)0.8X_{\text{H}}\Bigg] - (-k_{\text{h}}X_{\text{S}}X_{\text{H}})\Bigg\} 
+\end{aligned} \\ \nonumber \\ \nonumber
+[\text{Reaction}] \; &= \; V \Bigg\{-\dfrac{1}{Y_{\text{H}}}\mu_{\text{m,H}}X_{\text{H}}\Bigg(\dfrac{S_{\text{S}}}{K_{\text{SS}}+S_{\text{S}}}\Bigg)\Bigg(\dfrac{1}{K^{\text{H}}_{\text{O}}+S_{\text{O}}}\Bigg)\Bigg[S_{\text{O}} + 0.8K^{\text{H}}_{\text{O}}\Bigg(\dfrac{S_{\text{NO3}}}{K_{\text{NO3}}+S_{\text{NO3}}}\Bigg)\Bigg] + k_{\text{h}}X_{\text{S}}X_{\text{H}}\Bigg\}
+\end{align} \\* \\* 
+Substituting equation (3) into equation (2) yields the following \\* \\* 
+\begin{equation}
+\nonumber
+0 \; = \; Q(S_{\text{S,0}} - S_{\text{S}}) + V \Bigg\{-\dfrac{1}{Y_{\text{H}}}\mu_{\text{m,H}}X_{\text{H}}\Bigg(\dfrac{S_{\text{S}}}{K_{\text{SS}}+S_{\text{S}}}\Bigg)\Bigg(\dfrac{1}{K^{\text{H}}_{\text{O}}+S_{\text{O}}}\Bigg)\Bigg[S_{\text{O}} + 0.8K^{\text{H}}_{\text{O}}\Bigg(\dfrac{S_{\text{NO3}}}{K_{\text{NO3}}+S_{\text{NO3}}}\Bigg)\Bigg] + k_{\text{h}}X_{\text{S}}X_{\text{H}}\Bigg\}
+\end{equation}  \\* \\* 
+Dividing both sides of the equation above by $V$, we obtain \\* \\* 
+\begin{equation}
+0 \; = \; \dfrac{Q}{V}(S_{\text{S,0}} - S_{\text{S}}) -\dfrac{1}{Y_{\text{H}}}\mu_{\text{m,H}}X_{\text{H}}\Bigg(\dfrac{S_{\text{S}}}{K_{\text{SS}}+S_{\text{S}}}\Bigg)\Bigg(\dfrac{1}{K^{\text{H}}_{\text{O}}+S_{\text{O}}}\Bigg)\Bigg[S_{\text{O}} + 0.8K^{\text{H}}_{\text{O}}\Bigg(\dfrac{S_{\text{NO3}}}{K_{\text{NO3}}+S_{\text{NO3}}}\Bigg)\Bigg] + k_{\text{h}}X_{\text{S}}X_{\text{H}}.
+\end{equation} \\* \\* 
+By definition, \\* \\* 
+\begin{equation}
+\dfrac{1}{\theta} \; = \; \dfrac{Q}{V}.
+\end{equation} \\* \\* 
+Substituting equation (5) into equation (4) as follows \\* \\* 
+\begin{align}
+\nonumber
+\begin{array}{rcl}
+0 &=& \dfrac{1}{\theta}(S_{\text{S,0}} - S_{\text{S}}) -\dfrac{1}{Y_{\text{H}}}\mu_{\text{m,H}}X_{\text{H}}\Bigg(\dfrac{S_{\text{S}}}{K_{\text{SS}}+S_{\text{S}}}\Bigg)\Bigg(\dfrac{1}{K^{\text{H}}_{\text{O}}+S_{\text{O}}}\Bigg)\Bigg[S_{\text{O}} + 0.8K^{\text{H}}_{\text{O}}\Bigg(\dfrac{S_{\text{NO3}}}{K_{\text{NO3}}+S_{\text{NO3}}}\Bigg)\Bigg] + k_{\text{h}}X_{\text{S}}X_{\text{H}} \\ \\
+0 &=& \dfrac{1}{\theta}S_{\text{S,0}} - \dfrac{1}{\theta}S_{\text{S}} -\dfrac{1}{Y_{\text{H}}}\mu_{\text{m,H}}X_{\text{H}}\Bigg(\dfrac{S_{\text{S}}}{K_{\text{SS}}+S_{\text{S}}}\Bigg)\Bigg(\dfrac{1}{K^{\text{H}}_{\text{O}}+S_{\text{O}}}\Bigg)\Bigg[S_{\text{O}} + 0.8K^{\text{H}}_{\text{O}}\Bigg(\dfrac{S_{\text{NO3}}}{K_{\text{NO3}}+S_{\text{NO3}}}\Bigg)\Bigg] + k_{\text{h}}X_{\text{S}}X_{\text{H}} \\ \\
+0 &=& \dfrac{1}{\theta}S_{\text{S,0}} - S_{\text{S}} \Bigg\{\dfrac{1}{\theta} + \dfrac{1}{Y_{\text{H}}}\mu_{\text{m,H}}X_{\text{H}}\Bigg(\dfrac{1}{K_{\text{SS}}+S_{\text{S}}}\Bigg)\Bigg(\dfrac{1}{K^{\text{H}}_{\text{O}}+S_{\text{O}}}\Bigg)\Bigg[S_{\text{O}} + 0.8K^{\text{H}}_{\text{O}}\Bigg(\dfrac{S_{\text{NO3}}}{K_{\text{NO3}}+S_{\text{NO3}}}\Bigg)\Bigg] \Bigg\} + k_{\text{h}}X_{\text{S}}X_{\text{H}},
+\end{array}
+\end{align} \\* \\* 
+and re-arranging to solve for $S_{\text{S}}$ results in  \\* \\*
+\begin{align}
+\nonumber
+\begin{array}{rcl}
+\dfrac{1}{\theta}S_{\text{S,0}} + k_{\text{h}}X_{\text{S}}X_{\text{H}} &=& S_{\text{S}} \Bigg\{\dfrac{1}{\theta} + \dfrac{1}{Y_{\text{H}}}\mu_{\text{m,H}}X_{\text{H}}\Bigg(\dfrac{1}{K_{\text{SS}}+S_{\text{S}}}\Bigg)\Bigg(\dfrac{1}{K^{\text{H}}_{\text{O}}+S_{\text{O}}}\Bigg)\Bigg[S_{\text{O}} + 0.8K^{\text{H}}_{\text{O}}\Bigg(\dfrac{S_{\text{NO3}}}{K_{\text{NO3}}+S_{\text{NO3}}}\Bigg)\Bigg] \Bigg\} \\ \\
+\theta S_{\text{S}} &=& \dfrac{\theta \Bigg(\dfrac{1}{\theta}S_{\text{S,0}} + k_{\text{h}}X_{\text{S}}X_{\text{H}}\Bigg)}{\dfrac{1}{\theta} + \dfrac{1}{Y_{\text{H}}}\mu_{\text{m,H}}X_{\text{H}}\Bigg(\dfrac{1}{K_{\text{SS}}+S_{\text{S}}}\Bigg)\Bigg(\dfrac{1}{K^{\text{H}}_{\text{O}}+S_{\text{O}}}\Bigg)\Bigg[S_{\text{O}} + 0.8K^{\text{H}}_{\text{O}}\Bigg(\dfrac{S_{\text{NO3}}}{K_{\text{NO3}}+S_{\text{NO3}}}\Bigg)\Bigg]} \; .
+\end{array}
+\end{align} \\* \\* 
+Therefore, \\* \\*
+\begin{equation}
+\nonumber
+\boxed{S_{\text{S}} = \dfrac{S_{\text{S,0}} + \theta k_{\text{h}}X_{\text{S}}X_{\text{H}}}{1 + \theta \Bigg\{\dfrac{1}{Y_{\text{H}}}\mu_{\text{m,H}}X_{\text{H}}\Bigg(\dfrac{1}{K_{\text{SS}}+S_{\text{S}}}\Bigg)\Bigg(\dfrac{1}{K^{\text{H}}_{\text{O}}+S_{\text{O}}}\Bigg)\Bigg[S_{\text{O}} + 0.8K^{\text{H}}_{\text{O}}\Bigg(\dfrac{S_{\text{NO3}}}{K_{\text{NO3}}+S_{\text{NO3}}}\Bigg)\Bigg]\Bigg\}}}
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Mass Balances on Particulate Components}
+\subsection{Mass Balance on Particulate Substrates}
+\vspace{0.25cm}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{Xs}
+	\caption{Schematic diagram of the mass balance set-up for $X_{\text{S}}$ assuming an Activated Sludge System.}
+\end{figure} 
+\par\noindent\rule{\textwidth}{0.4pt} \vspace{0.1 cm} \\*
+Given the CAS system depicted in Figure 3 above: \vspace{0.05 cm} \begin{enumerate}[label=(\roman*)]
+	\item Let $X_{\text{S,e}}$ denote the effluent particulate substrate concentration (in mg-COD/L);
+	\item Let $X_{\text{S,r}}$ denote the WAS particulate substrate concentration (in mg-COD/L);
+	\item Let $X_{\text{S,0}}$ denote influent particulate substrate concentration (in mg-COD/L);
+	\item Let $Q$ denote the flowrate of the influent (in $\text{m}^3/\text{d}$);
+	\item Let $Q_{\text{w}}$ denote the waste sludge flowrate (in $\text{m}^3/\text{d}$).
+\end{enumerate}
+\par\noindent\rule{\textwidth}{0.4pt} \\* \\*
+\noindent To begin performing a mass balance on the particulate substrate concentration, $X_{\text{S}}$, we apply the Law of Conservation of Mass on the system boundary. Doing so yields \\* \\* 
+\begin{align}
+\begin{array}{rcl}
+[\text{Change}] &=& [\text{Inlet}] - [\text{Outlet}] + [\text{Reaction}] \\ \\
+V \cdot \dfrac{dX_{\text{S}}}{dt} &=& QX_{\text{S,0}} - [(Q-Q_{\text{w}})X_{\text{S,e}} + Q_{\text{w}}X_{\text{S,r}}] + [\text{Reaction}] \\ \\
+V \cdot \dfrac{dX_{\text{S}}}{dt} &=& QX_{\text{S,0}} - QX_{\text{S,e}} + Q_{\text{w}}X_{\text{S,e}} - Q_{\text{w}}X_{\text{S,r}} + [\text{Reaction}].
+\end{array}
+\end{align} \\* \\* 
+Applying the steady state assumption to the equation above implies that $\dfrac{dX_{\text{S}}}{dt}=0$. So equation (6) simplifies to the following \\* \\* 
+\begin{equation}
+0 \; = \; QX_{\text{S,0}} - QX_{\text{S,e}} + Q_{\text{w}}X_{\text{S,e}} - Q_{\text{w}}X_{\text{S,r}} + [\text{Reaction}].
+\end{equation}
+Additionally, assuming that \\* \\* 
+\begin{equation}
+\nonumber
+\dfrac{X_{\text{S}}}{X_{\text{Total}}}\biggr\rvert_{\text{Bioreactor}} \; = \; \dfrac{X_{\text{S,e}}}{X_{\text{Total,e}}} \; = \; \dfrac{X_{\text{S,r}}}{X_{\text{Total,r}}}, 
+\end{equation} \\* \\* 
+equation (7) may be simplified as follows \\* \\* 
+\begin{align}
+\begin{array}{rcl}
+0 &=& QX_{\text{S,0}} - QX_{\text{S}}\dfrac{X_{\text{Total,e}}}{X_{\text{Total}}} + Q_{\text{w}}X_{\text{S}}\dfrac{X_{\text{Total,e}}}{X_{\text{Total}}} - Q_{\text{w}}X_{\text{S}}\dfrac{X_{\text{Total,r}}}{X_{\text{Total}}} + [\text{Reaction}] \\ \\
+0 &=& QX_{\text{S,0}} - X_{\text{S}} \Bigg[\dfrac{(Q-Q_{\text{w}})X_{\text{Total,e}} + Q_{\text{w}}X_{\text{Total,r}}}{X_{\text{Total}}}\Bigg] + [\text{Reaction}].
+\end{array}
+\end{align} \\* \\*
+To determine the reaction term in (8), we first refer to Figure 4 below.
+	\vspace{0.25cm}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1.9 in]{R2}
+	\caption{Reaction diagram in the perspective of $X_{\text{S}}$ developed from the reaction chart provided for the term project on Avenue to Learn.} 
+\end{figure} 
+\vspace{0.25cm} 
+\noindent Based on the kinetic expressions associated with each of the individual reactions shown above, we have \\* \\* 
+\begin{align}
+\begin{array}{rcl}
+[\text{Reaction}] &=& V \cdot  \dfrac{dX_{\text{S}}}{dt}\biggr\rvert_{\text{Hydrolysis}} + \; \;  \; \; V \cdot \dfrac{dX_{\text{S}}}{dt}\biggr\rvert_{\text{Decay}} \\ \\
+&=& V \Bigg(\dfrac{dX_{\text{S}}}{dt}\biggr\rvert_{\text{Hydrolysis}} + \; \;  \; \; \dfrac{dX_{\text{S}}}{dt}\biggr\rvert_{\text{Decay}}\Bigg) \\ \\
+&=& V \Bigg[-k_{\text{h}}X_{\text{S}}X_{\text{H}} + (1-f_{\text{d}})\Bigg(-\dfrac{dX_{\text{H}}}{dt}\biggr\rvert_{\text{Decay}} - \dfrac{dX_{\text{A}}}{dt}\biggr\rvert_{\text{Decay}} - \dfrac{dX_{\text{NOB}}}{dt}\biggr\rvert_{\text{Decay}}\Bigg)\Bigg] \\ \\
+&=& V \Bigg(\dfrac{dX_{\text{S}}}{dt}\biggr\rvert_{\text{Hydrolysis}} + \; \;  \; \; \dfrac{dX_{\text{S}}}{dt}\biggr\rvert_{\text{Decay}}\Bigg) \\ \\
+&=& V \Big[-k_{\text{h}}X_{\text{S}}X_{\text{H}} + (1-f_{\text{d}})(b_{\text{H}}X_{\text{H}} + b_{\text{A}}X_{\text{A}})\Big].
+\end{array}
+\end{align} \\*
+Substituting the result of equation (9) into equation (8) results in \\* \\* 
+\begin{equation}
+0 \; = \; QX_{\text{S,0}} - X_{\text{S}} \Bigg[\dfrac{(Q-Q_{\text{w}})X_{\text{Total,e}} + Q_{\text{w}}X_{\text{Total,r}}}{X_{\text{Total}}}\Bigg]  + V \Big[-k_{\text{h}}X_{\text{S}}X_{\text{H}} + (1-f_{\text{d}})(b_{\text{H}}X_{\text{H}} + b_{\text{A}}X_{\text{A}})\Big].
+\end{equation} \\* \\* 
+Dividing both sides of equation (10) by $V$, we obtain \\* \\* 
+\begin{equation}
+0 \; = \; \dfrac{Q}{V}X_{\text{S,0}} - X_{\text{S}} \Bigg[\dfrac{(Q-Q_{\text{w}})X_{\text{Total,e}} + Q_{\text{w}}X_{\text{Total,r}}}{V \cdot X_{\text{Total}}}\Bigg]  + \Big[-k_{\text{h}}X_{\text{S}}X_{\text{H}} + (1-f_{\text{d}})(b_{\text{H}}X_{\text{H}} + b_{\text{A}}X_{\text{A}})\Big].
+\end{equation} \\* \\* 
+By definition, \\* \\* 
+\begin{equation}
+\dfrac{1}{\theta} \; = \; \dfrac{Q}{V} \; \; \; \; \; \;  \text{and} \; \; \; \; \; \; \dfrac{1}{\theta_c} \; = \; \dfrac{(Q-Q_{\text{w}})X_{\text{Total,e}} + Q_{\text{w}}X_{\text{Total,r}}}{V \cdot X_{\text{Total}}} \; .
+\end{equation} \\* \\* 
+Substituting both equations defined in (12) into equation (11) and re-arranging the resultant equation so as to solve for $X_{\text{S}}$ yields \\* \\* 
+\begin{align}
+\nonumber
+\begin{array}{rcl}
+0 &=& \dfrac{1}{\theta}X_{\text{S,0}} - \dfrac{1}{\theta_c}X_{\text{S}} - [k_{\text{h}}X_{\text{S}}X_{\text{H}}] + [(1-f_{\text{d}})(b_{\text{H}}X_{\text{H}} + b_{\text{A}}X_{\text{A}})] \\ \\
+\dfrac{1}{\theta_c}X_{\text{S}} + [k_{\text{h}}X_{\text{S}}X_{\text{H}}] &=& \dfrac{1}{\theta}X_{\text{S,0}} + [(1-f_{\text{d}})(b_{\text{H}}X_{\text{H}} + b_{\text{A}}X_{\text{A}})] \\ \\
+X_{\text{S}} \Bigg(\dfrac{1}{\theta_c} + [k_{\text{h}}X_{\text{H}}]\Bigg) &=& \dfrac{1}{\theta}X_{\text{S,0}} + [(1-f_{\text{d}})(b_{\text{H}}X_{\text{H}} + b_{\text{A}}X_{\text{A}})].
+\end{array}
+\end{align} \\* \\* 
+Therefore, we obtain that \\* \\* 
+\begin{equation}
+\nonumber
+\boxed{X_{\text{S}} \; = \; \dfrac{\dfrac{1}{\theta}X_{\text{S,0}} + [(1-f_{\text{d}})(b_{\text{H}}X_{\text{H}} + b_{\text{A}}X_{\text{A}})]}{\Bigg(\dfrac{1}{\theta_c} + [k_{\text{h}}X_{\text{H}}]\Bigg)}}
+\end{equation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\subsection{Mass Balance on Inert Solids}
+\vspace{0.25cm}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{Xi}
+	\caption{Schematic diagram of the mass balance set-up for $X_{\text{I}}$ assuming an Activated Sludge System.}
+\end{figure} 
+\par\noindent\rule{\textwidth}{0.4pt} \vspace{0.1 cm} \\*
+Given the CAS system depicted in Figure 5 above: \vspace{0.05 cm} \begin{enumerate}[label=(\roman*)]
+	\item Let $X_{\text{I,e}}$ denote the effluent inert solids concentration (in mg-COD/L);
+	\item Let $X_{\text{I,r}}$ denote the WAS inert solids concentration (in mg-COD/L);
+	\item Let $X_{\text{I,0}}$ denote influent inert solids concentration (in mg-COD/L);
+	\item Let $Q$ denote the flowrate of the influent (in $\text{m}^3/\text{d}$);
+	\item Let $Q_{\text{w}}$ denote the waste sludge flowrate (in $\text{m}^3/\text{d}$).
+\end{enumerate}
+\par\noindent\rule{\textwidth}{0.4pt} \\* \\*
+\noindent To begin performing a mass balance on the particulate substrate concentration, $X_{\text{I}}$, we apply the Law of Conservation of Mass on the system boundary. Doing so yields \\* \\*
+\begin{align}
+\begin{array}{rcl}
+[\text{Change}] &=& [\text{Inlet}] - [\text{Outlet}] + [\text{Reaction}] \\ \\
+V \cdot \dfrac{dX_{\text{I}}}{dt} &=& QX_{\text{I,0}} - [(Q-Q_{\text{w}})X_{\text{I,e}} + Q_{\text{w}}X_{\text{I,r}}] + [\text{Reaction}] \\ \\
+V \cdot \dfrac{dX_{\text{I}}}{dt} &=& QX_{\text{I,0}} - QX_{\text{I,e}} + Q_{\text{w}}X_{\text{I,e}} - Q_{\text{w}}X_{\text{I,r}} + [\text{Reaction}].
+\end{array}
+\end{align}
+Applying the steady state assumption to the equation above implies that $\dfrac{dX_{\text{S}}}{dt}=0$. So equation (13) simplifies to the following \\* \\* 
+\begin{equation}
+0 \; = \; QX_{\text{I,0}} - QX_{\text{I,e}} + Q_{\text{w}}X_{\text{I,e}} - Q_{\text{w}}X_{\text{I,r}} + [\text{Reaction}].
+\end{equation} \\* \\*
+Additionally, assuming that \\* \\* 
+\begin{equation}
+\nonumber
+\dfrac{X_{\text{I}}}{X_{\text{Total}}}\biggr\rvert_{\text{Bioreactor}} \; = \; \dfrac{X_{\text{I,e}}}{X_{\text{Total,e}}} \; = \; \dfrac{X_{\text{I,r}}}{X_{\text{Total,r}}}, 
+\end{equation} \\* \\* 
+equation (14) may be simplified as follows \\* \\* 
+\begin{align}
+\begin{array}{rcl}
+0 &=& QX_{\text{I,0}} - QX_{\text{I}}\dfrac{X_{\text{Total,e}}}{X_{\text{Total}}} + Q_{\text{w}}X_{\text{I}}\dfrac{X_{\text{Total,e}}}{X_{\text{Total}}} - Q_{\text{w}}X_{\text{I}}\dfrac{X_{\text{Total,r}}}{X_{\text{Total}}} + [\text{Reaction}] \\ \\
+0 &=& QX_{\text{I,0}} - X_{\text{I}} \Bigg[\dfrac{(Q-Q_{\text{w}})X_{\text{Total,e}} + Q_{\text{w}}X_{\text{Total,r}}}{X_{\text{Total}}}\Bigg] + [\text{Reaction}].
+\end{array}
+\end{align} \\* \\*
+To determine the reaction term in (15), we first refer to the reaction chart provided on Avenue to Learn. Based on the kinetic expressions associated with each of the reactions, we have that \\* \\* 
+\begin{align}
+\begin{array}{rcl}
+[\text{Reaction}] &=& V \cdot  \dfrac{dX_{\text{I}}}{dt}\biggr\rvert_{\text{Decay}} \\ \\
+&=& V \cdot f_{\text{d}}\Bigg(-\dfrac{dX_{\text{H}}}{dt}\biggr\rvert_{\text{Decay}} - \dfrac{dX_{\text{A}}}{dt}\biggr\rvert_{\text{Decay}}\Bigg) \\ \\
+&=& V \cdot f_{\text{d}}(b_{\text{H}}X_{\text{H}}+b_{\text{A}}X_{\text{A}}).
+\end{array}
+\end{align} \\* \\*
+Substituting the result of equation (16) into equation (15) results in \\* \\* 
+\begin{equation}
+0 \; = \; QX_{\text{I,0}} - X_{\text{I}} \Bigg[\dfrac{(Q-Q_{\text{w}})X_{\text{Total,e}} + Q_{\text{w}}X_{\text{Total,r}}}{X_{\text{Total}}}\Bigg]  + V \cdot f_{\text{d}}(b_{\text{H}}X_{\text{H}}+b_{\text{A}}X_{\text{A}}).
+\end{equation} \\* \\* 
+Dividing both sides of equation (17) by $V$, we obtain \\* \\* 
+\begin{equation}
+0 \; = \; \dfrac{Q}{V}X_{\text{I,0}} - X_{\text{I}} \Bigg[\dfrac{(Q-Q_{\text{w}})X_{\text{Total,e}} + Q_{\text{w}}X_{\text{Total,r}}}{V \cdot X_{\text{Total}}}\Bigg]  + f_{\text{d}}(b_{\text{H}}X_{\text{H}}+b_{\text{A}}X_{\text{A}}).
+\end{equation} \\* \\* 
+By definition, \\* \\* 
+\begin{equation}
+\dfrac{1}{\theta} \; = \; \dfrac{Q}{V} \; \; \; \; \; \;  \text{and} \; \; \; \; \; \; \dfrac{1}{\theta_c} \; = \; \dfrac{(Q-Q_{\text{w}})X_{\text{Total,e}} + Q_{\text{w}}X_{\text{Total,r}}}{V \cdot X_{\text{Total}}} \; .
+\end{equation} \\* \\* 
+Substituting both equations defined in (19) into equation (18) and re-arranging the resultant equation so as to solve for $X_{\text{I}}$ yields \\* \\* 
+\begin{align}
+\nonumber
+\begin{array}{rcl}
+0 &=& \dfrac{1}{\theta}X_{\text{I,0}} - \dfrac{1}{\theta_c}X_{\text{I}} + f_{\text{d}}(b_{\text{H}}X_{\text{H}}+b_{\text{A}}X_{\text{A}}) \\ \\
+\dfrac{1}{\theta_c}X_{\text{I}} &=& \dfrac{1}{\theta}X_{\text{I,0}} + f_{\text{d}}(b_{\text{H}}X_{\text{H}}+b_{\text{A}}X_{\text{A}}).
+\end{array}
+\end{align}  \\* \\* 
+Therefore, we have that \\* \\* 
+\begin{equation}
+\nonumber
+\boxed{X_{\text{I}} \; = \; \dfrac{\dfrac{1}{\theta}X_{\text{I,0}} + f_{\text{d}}(b_{\text{H}}X_{\text{H}}+b_{\text{A}}X_{\text{A}})}{\dfrac{1}{\theta_c}}}
+\end{equation}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Mass Balance on Particulate Organic Nitrogen}
+\vspace{0.25cm}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\linewidth]{Xns}
+	\caption{Schematic diagram of the mass balance set-up for $X_{\text{NS}}$ assuming an Activated Sludge System.}
+\end{figure} 
+\par\noindent\rule{\textwidth}{0.4pt} \vspace{0.1 cm} \\*
+Given the CAS system depicted in Figure 6 above: \vspace{0.05 cm} \begin{enumerate}[label=(\roman*)]
+	\item Let $X_{\text{NS,e}}$ denote the effluent particulate organic nitrogen concentration (in mg-N/L);
+	\item Let $X_{\text{NS,r}}$ denote the WAS particulate organic nitrogen concentration (in mg-N/L);
+	\item Let $X_{\text{NS,0}}$ denote influent inert particulate organic nitrogen concentration (in mg-N/L);
+	\item Let $Q$ denote the flowrate of the influent (in $\text{m}^3/\text{d}$);
+	\item Let $Q_{\text{w}}$ denote the waste sludge flowrate (in $\text{m}^3/\text{d}$).
+\end{enumerate}
+\par\noindent\rule{\textwidth}{0.4pt} \\* \\*
+\noindent To begin performing a mass balance on $X_{\text{NS}}$, we apply the Law of Conservation of Mass on the system boundary. Doing so yields \\* \\* 
+\begin{align}
+\begin{array}{rcl}
+[\text{Change}] &=& [\text{Inlet}] - [\text{Outlet}] + [\text{Reaction}] \\ \\
+V \cdot \dfrac{dX_{\text{NS}}}{dt} &=& QX_{\text{NS,0}} - [(Q-Q_{\text{w}})X_{\text{NS,e}} + Q_{\text{w}}X_{\text{NS,r}}] + [\text{Reaction}] \\ \\
+V \cdot \dfrac{dX_{\text{NS}}}{dt} &=& QX_{\text{NS,0}} - QX_{\text{NS,e}} + Q_{\text{w}}X_{\text{NS,e}} - Q_{\text{w}}X_{\text{NS,r}} + [\text{Reaction}].
+\end{array}
+\end{align} \\* \\* 
+Applying the steady state assumption to the equation above implies that $\dfrac{dX_{\text{NS}}}{dt}=0$. So equation (20) simplifies to the following \\* \\* 
+\begin{equation}
+0 \; = \; QX_{\text{NS,0}} - QX_{\text{NS,e}} + Q_{\text{w}}X_{\text{NS,e}} - Q_{\text{w}}X_{\text{NS,r}} + [\text{Reaction}].
+\end{equation} \\* \\*
+Additionally, assuming that \\* \\* 
+\begin{equation}
+\nonumber
+\dfrac{X_{\text{NS}}}{X_{\text{Total}}}\biggr\rvert_{\text{Bioreactor}} \; = \; \dfrac{X_{\text{NS,e}}}{X_{\text{Total,e}}} \; = \; \dfrac{X_{\text{NS,r}}}{X_{\text{Total,r}}}, 
+\end{equation} \\* \\* 
+equation (21) may be simplified as follows \\* \\* 
+\begin{align}
+\begin{array}{rcl}
+0 &=& QX_{\text{NS,0}} - QX_{\text{NS}}\dfrac{X_{\text{Total,e}}}{X_{\text{Total}}} + Q_{\text{w}}X_{\text{NS}}\dfrac{X_{\text{Total,e}}}{X_{\text{Total}}} - Q_{\text{w}}X_{\text{NS}}\dfrac{X_{\text{Total,r}}}{X_{\text{Total}}} + [\text{Reaction}] \\ \\
+0 &=& QX_{\text{NS,0}} - X_{\text{NS}} \Bigg[\dfrac{(Q-Q_{\text{w}})X_{\text{Total,e}} + Q_{\text{w}}X_{\text{Total,r}}}{X_{\text{Total}}}\Bigg] + [\text{Reaction}].
+\end{array}
+\end{align} \\* \\* 
+To determine the reaction term in (22), we first refer to the reaction chart provided on Avenue to Learn. Based on the kinetic expressions associated with each of the reactions, we have that \\* \\* 
+\begin{align}
+\begin{array}{rcl}
+[\text{Reaction}] &=& V \cdot \Bigg[\dfrac{X_{\text{NS}}}{X_{\text{S}}}(-k_{\text{h}}X_{\text{S}}X_{\text{H}}) + i_{N/decay}(b_{\text{H}}X_{\text{H}}+b_{\text{A}}X_{\text{A}})\Bigg] \\ \\
+&=& V \cdot [X_{\text{NS}}(-k_{\text{h}}X_{\text{H}}) + i_{N/decay}(b_{\text{H}}X_{\text{H}}+b_{\text{A}}X_{\text{A}})].
+\end{array}
+\end{align} \\* \\*
+Substituting the result of equation (23) into equation (22) results in \\* \\* 
+\begin{equation}
+0 \; = \; QX_{\text{NS,0}} - X_{\text{NS}} \Bigg[\dfrac{(Q-Q_{\text{w}})X_{\text{Total,e}} + Q_{\text{w}}X_{\text{Total,r}}}{X_{\text{Total}}}\Bigg]  + V \cdot [X_{\text{NS}}(-k_{\text{h}}X_{\text{H}}) + i_{N/decay}(b_{\text{H}}X_{\text{H}}+b_{\text{A}}X_{\text{A}})].
+\end{equation} \\* \\* 
+Dividing both sides of equation (24) by $V$, we obtain \\* \\* 
+\begin{equation}
+0 \; = \; \dfrac{Q}{V}X_{\text{NS,0}} - X_{\text{NS}} \Bigg[\dfrac{(Q-Q_{\text{w}})X_{\text{Total,e}} + Q_{\text{w}}X_{\text{Total,r}}}{V \cdot X_{\text{Total}}}\Bigg]  + [X_{\text{NS}}(-k_{\text{h}}X_{\text{H}}) + i_{N/decay}(b_{\text{H}}X_{\text{H}}+b_{\text{A}}X_{\text{A}})].
+\end{equation} \\* \\* 
+By definition, \\* \\* 
+\begin{equation}
+\dfrac{1}{\theta} \; = \; \dfrac{Q}{V} \; \; \; \; \; \;  \text{and} \; \; \; \; \; \; \dfrac{1}{\theta_c} \; = \; \dfrac{(Q-Q_{\text{w}})X_{\text{Total,e}} + Q_{\text{w}}X_{\text{Total,r}}}{V \cdot X_{\text{Total}}} \; .
+\end{equation} \\* \\* 
+Substituting both equations defined in (26) into equation (25) and re-arranging the resultant equation so as to solve for $X_{\text{NS}}$ yields \\* \\* 
+\begin{align}
+\nonumber
+\begin{array}{rcl}
+0 &=& \dfrac{1}{\theta}X_{\text{NS,0}} - \dfrac{1}{\theta_c}X_{\text{NS}} + [X_{\text{NS}}(-k_{\text{h}}X_{\text{H}}) + i_{N/decay}(b_{\text{H}}X_{\text{H}}+b_{\text{A}}X_{\text{A}})].
+\end{array}
+\end{align}  \\* \\* 
+Therefore, we have that \\* \\* 
+\begin{equation}
+\nonumber
+\boxed{X_{\text{NS}} \; = \; \dfrac{\dfrac{1}{\theta}X_{\text{NS,0}} + i_{N/decay}(b_{\text{H}}X_{\text{H}}+b_{\text{A}}X_{\text{A}})}{\dfrac{1}{\theta_c} + k_{\text{h}}X_{\text{H}}}}
+\end{equation}
+
+\end{document}
