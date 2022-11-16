@@ -1,0 +1,258 @@
+\documentclass[]{article}
+\setcounter{secnumdepth}{0}
+\usepackage{xcolor}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{commath}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{esvect}
+\usepackage{listings}
+\usepackage[export]{adjustbox}
+\usepackage{multirow}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage{float}
+\usepackage{csquotes}
+\usepackage{color}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linktoc=all,     
+	linkcolor=black,
+}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+% TITLE BLOCK
+
+\title{\large{McMaster University Winter 2021} \LARGE \\* CIVENG 4L04: Design of Water Resources Systems}
+\date{}
+\begin{document}
+	\maketitle
+	\thispagestyle{empty}
+	\begin{center}
+		\vspace{3.6cm}
+		\Huge Project 5: Modelling Tifton Basin in HEC-HMS \\* \vspace{1cm}
+		\Large Lab Section 01, L01 \\* \vspace{1cm}
+		\Large Group 12 \\* \vspace{0.25cm}
+		\large Endi Hajdari, 400129292 \\* \vspace{0.05cm}
+		Jamie Yu, 400128969 \\* \vspace{6cm}
+		\large Due: March 17, 2021; 8:30 am (EST) 
+	\end{center}	
+	\newpage
+	\doublespacing
+	\tableofcontents
+	\singlespacing
+	\newpage 
+	\section{Part A: Create a New Project}
+	\subsection{Questions}
+	\vspace{0.5 cm}
+	\begin{enumerate}[label=\textbf{\arabic*.}] 
+		\item \begin{minipage}[t]{\linewidth}
+		\raggedright
+		\adjustbox{valign=t}{%
+			\includegraphics[width=\linewidth]{1}%
+		}
+		
+		\medskip
+		\begin{center} 
+			Figure 1: Note 10008 as appeared in the message log after creating the project.
+		\end{center}
+	\end{minipage}
+	\end{enumerate} \vspace{1cm}
+\section{Part B: Create a Basin Model}
+\subsection{Questions}
+\vspace{0.5 cm}
+\begin{enumerate}[label=\textbf{\arabic*.}] 
+	\item \begin{minipage}[t]{\linewidth}
+		\raggedright
+		\adjustbox{valign=t}{%
+			\includegraphics[width=\linewidth]{22}%
+		}
+		
+		\medskip
+		\begin{center} 
+			Figure 2: HEC-HMS desktop pane after creating the new basin model. Note that the Basin Model tab was extended to fit into the entire area of the desktop pane.
+		\end{center}
+	\end{minipage}
+\end{enumerate} 
+\newpage
+\section{Part D: Input Data}
+\subsection{Questions}
+\vspace{0.5 cm}
+\begin{enumerate}[label=\textbf{\arabic*.}] 
+	\item \begin{minipage}[t]{\linewidth}
+		\centering
+		\adjustbox{valign=t}{%
+			\includegraphics[width=4 in]{3}%
+		}
+		
+		\medskip
+		\begin{center} 
+			Figure 3: Graph tab depicting precipitation as a function of time for the precipitation gage.
+		\end{center}
+		\bigskip
+		\bigskip
+		\centering
+		\adjustbox{valign=t}{%
+			\includegraphics[width= 4 in]{4}%
+		}
+	\medskip
+	\begin{center} 
+		Figure 4: Graph tab depicting discharge as a function of time for the discharge gage.
+	\end{center}
+	\end{minipage}
+\end{enumerate}
+\newpage
+\section{Part J: View Model Results}
+\subsection{Questions}
+\vspace{0.5 cm}
+\begin{enumerate}[label=\textbf{\arabic*.}] 
+	\item \begin{minipage}[t]{\linewidth}
+		\raggedright
+		\adjustbox{valign=t}{%
+			\includegraphics[width=\linewidth]{5}%
+		}
+		
+		\medskip
+		\begin{center} 
+			Figure 5: Graph tab depicting precipitation as a function of time for the precipitation gage.
+		\end{center}
+		\end{minipage} 
+	\paragraph{}
+	 \textbf{Remark:} When running HEC-HMS 4.2.1\footnote{This was the case for both of our computers.}, the display interface slightly cuts off values on tables. After referring to the HEC-HMS User's Manual and extensively browsing the Internet, no solution to fix this problem was found. As a result, as well as for clarity purposes, Table 1 was created by copying and pasting the values from the Global Summary Results table on HEC-HMS. \\* 
+	 \begin{center}
+	 \begin{tabular}{|M{2.5cm}|M{2.5cm}|M{2.5cm}|M{3cm}|M{2.5cm}|}
+	 	\hline
+	 	Hydrologic Element & Drainage Area (MI2) & Peak Discharge (CFS) & Time of Peak & Volume (IN) \\ \hline
+	 	74006  & 19.27  & 417.6 & 05Jun1970 04:00 & 3.54   \\ \hline
+	 	Station I &  19.27   & 417.6 & 05Jun1970 04:00 & 3.54 \\ \hline
+	 \end{tabular}
+ \end{center}
+	 \begin{center} 
+	 	Table 1: A summary of the Global Summary Results for Simulation Run: Existing Condition.
+	 \end{center} \newpage
+ \item \begin{minipage}[t]{\linewidth}
+ 	\raggedright
+ 	\adjustbox{valign=t}{%
+ 		\includegraphics[width=\linewidth]{6}%
+ 	}
+ 	
+ 	\medskip
+ 	\begin{center} 
+ 		Figure 6: Graph for Subbasin 74006 for Simulation Run: Existing Condition.
+ 	\end{center}
+ \end{minipage} \\ \\ \\ \\
+\noindent \textbf{Explanation of the Graph:} The top graph in the graph tab in Figure 6 is the hyetograph for Subbasin: 74006, which shows depth (in inches) as a function of time (in days). Moreover, the red portion of the graph depicts the amount of precipitation lost due to infiltration and the blue portion depicts the excess depth of precipitation. The bottom graph in the graph tab in Figure 6 is the hydrograph for Subbasin: 74006, which shows the surface runn-off flow (in cubic feet per second) as a function of time (in days). The hydrograph is comprised of the excess hydrograph and the baseflow hydrograph. The solid blue line represents the excess hydrograph, whereas the red dashed line represents the baseflow hydrograph. \\* \\* As depicted in the bottom graph, the excess flow almost coincided with the base flow during the following time intervals: 30May1970-03Jun1970, 10Jun1970-13Jun1970, and 16Jun1970-21Jun1970. This makes sense as in the top hyetograph, there is very little excess rainfall. In addition, the global peak flow (i.e., global maximum of the graph) occurred on 04Jun1970. Local peak flows (i.e., local maxima of the graph) were also observed on 14Jun1970, 23Jun1970, and 28Jun1970. \\
+\item \begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{7}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 7: Graph for Junction: Station I for Simulation Run: Existing Condition.
+	\end{center}
+\end{minipage} \\ \\ \\ \\
+ \noindent \textbf{Explanation of the Graph:} The graph in Figure 7 is the hydrograph for Junction: Station I, which depicts the flow (in cubic feet per second) as a function of time (in days). The black dotted curve represents the hydrograph for the observed flow. The blue-dashed curve depicts the hydrograph for the Subbasin: 74006 inflow data. The solid blue curve represents the simulated outflow, which is created on HEC-HMS via the summation of all the hydrographs that feed into the junction (i.e., the blue dashed curves are added to one another to create the solid blue curve). As can be seen, there are periods of time where the black dotted series curve and the solid blue curve have large gaps between them, which is implies that the HEC-HMS model parameters and methods implemented may not represent the observed flow data very well. \\ \\ 
+ \textbf{Model Parameters and Methods:} The model methods used include the Simple Canopy Method, Simple Surface Method, Soil Moisture Accounting Loss Method, Clark Unit Hydrograph Transform Method, and Linear Reservoir Baseflow Method. The \textit{Clark Unit Hydrograph Method} creates a hydrograph for a basin via the representation of the movement of excess precipitation (from the inlet to outlet of the basin) and the discharge reduction occurring as a result of precipitation being stored. The model parameters for this method were: the storage coefficient and the time of concentration (in this case, the time of concentration was 20 HR and the storage coefficient was 24 HR). Additionally, this model uses the \textit{Linear Reservoir Baseflow Method} which simulates both storage and movement processes through reservoirs linearly. The parameters involved were: GW 1 initial and the GW 1 coefficient. The \textit{Simple Canopy Method} parameters that were inputted were: initial storage and maximum storage. The \textit{Simple Surface Method} parameters were: initial storage and maximum storage. The \textit{Soil Moisture Accounting Loss Method} parameters that were inputted: soil (\%), Groundwater 1 (\%), Groundwater 2 (\%), maximum infiltration, imperviousness, soil storage, tension storage, soil percolation, GW 1 storage, GW 2 storage, G1 percolation, GW 2 percolation, GW 1 coefficient, and GW 2 coefficient.   \\ \\
+ \item In the graph shown in Figure 7, the dashed blue line is invisible because both the solid blue curve and dashed blue curve coincide with each other (i.e., the blue line is on top of dashed blue line). This is because there is only one subbasin (i.e., Subbasin: 74006) that is contributing to the junction (i.e., Junction: Station 1). Thus, the resulting outflows will be the same. 
+\end{enumerate}\vspace{1cm}
+\section{Part H: Create a Model for an Urbanization Scenario}
+\subsection{Results}
+\vspace{0.5 cm}
+\begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{R1}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 8: The Global Summary Results (right) and Graph for Subbasin: 74006 (left) for Simulated Run: Urbanized Condition 1.
+	\end{center}
+\bigskip
+\bigskip
+\centering
+\adjustbox{valign=t}{%
+\includegraphics[width=\linewidth]{R2}%
+}
+\medskip
+\begin{center} 
+Figure 9: The Global Summary Results (right) and Graph for Subbasin: 74006 (left) for Simulated Run: Urbanized Condition 2.
+\end{center}
+\end{minipage} \newpage
+\noindent \textbf{Remark:} When running HEC-HMS 4.2.1\footnote{This was the case for both of our computers.}, the display interface slightly cuts off values on tables. After referring to the HEC-HMS User's Manual and extensively browsing the Internet, no solution to fix this problem was found. As a result, as well as for clarity purposes, Table 2 and Table 3 were created by copying and pasting the values from the Global Summary Results for each Urbanized Condition Run on HEC-HMS. \vspace{0.5 cm}
+\begin{center}
+	\begin{tabular}{|M{2.5cm}|M{2.5cm}|M{2.5cm}|M{3cm}|M{2.5cm}|}
+		\hline
+		Hydrologic Element & Drainage Area (MI2) & Peak Discharge (CFS) & Time of Peak & Volume (IN) \\ \hline
+		74006  & 19.27  & 475.4 & 05Jun1970 00:00 & 3.67   \\ \hline
+		Station I &  19.27   & 475.4 & 05Jun1970 00:00 & 3.67 \\ \hline
+	\end{tabular}
+\end{center} 
+\begin{center} 
+	Table 2: A summary of the Global Summary Results for Simulation Run: Urbanized Condition 1.
+\end{center} \vspace{0.5 cm}
+\begin{center}
+	\begin{tabular}{|M{2.5cm}|M{2.5cm}|M{2.5cm}|M{3cm}|M{2.5cm}|}
+		\hline
+		Hydrologic Element & Drainage Area (MI2) & Peak Discharge (CFS) & Time of Peak & Volume (IN) \\ \hline
+		74006  & 19.27  & 471.8 & 05Jun1970 04:00 & 4.03   \\ \hline
+		Station I &  19.27   & 471.8 & 05Jun1970 04:00 & 4.03  \\ \hline
+	\end{tabular} 
+\end{center} 
+\begin{center} 
+	Table 3: A summary of the Global Summary Results for Simulation Run: Urbanized Condition 2.
+\end{center} \vspace{0.5 cm}
+\subsection{Questions}
+\vspace{0.5 cm}
+\begin{enumerate}[label=\textbf{\arabic*.}] 
+	\item As depicted in Table 2, the peak discharge for the Urbanized Condition 1 Model was 475.4 CFS which is larger than the Existing Condition Model's peak discharge value of 417.6 CFS (i.e., increased by 57.8 CFS). As depicted in Table 3, the peak discharge for the Urbanized Condition 2 Model was 471.8 CFS which is larger than the Existing Condition Model's peak discharge value of 417.6 CFS (i.e., increased by 54.2 CFS). \\ 
+	\item See Table 4 below for an outline of the hydrological processes and parameters that could be affected by urbanization. \vspace{0.5 cm}
+	\begin{center}
+		\begin{tabular}{|M{4cm}|M{10cm}|}
+			\hline
+			Hydrological Processes & Hydrologic Parameters \\ \hline
+			Infiltration  & Initial storage, maximum storage, maximum infiltration, imperviousness, groundwater recharge, hydraulic conductivity in soils, and soil percolation.   \\ \hline
+			Runoff &  Imperviousness, soil moisture, snowmelt rate, effective precipitation, time of concentration, and canopy and ground resistance.  \\ \hline
+			Evapotranspiration & Interception storage capacity, vegetation canopy (i.e., area of subbasin with vegetation), surface albedo, and surface air temperature. \\ \hline 
+		\end{tabular} 
+	\end{center} 
+	\begin{center} 
+		Table 4: The hydrological processes and hydrologic parameters that may be affected by urbanization.
+	\end{center} 
+	\newpage 
+	\item \textbf{The Effects of Urbanization:} \\* \\* 
+	\textit{\textbf{Urbanized Condition 1 Model Versus Existing Model:}} The reason as to why peak discharge for the Urbanized Condition 1 Model was larger than that of the Existing Condition Model was because the imperviousness was increased from 0\% to 10\% over a smaller time of concentration (i.e., the time of concentration was reduced from 20 HR to 15 HR). Firstly, increasing the imperviousness means a smaller volume of water infiltrates the ground, thus resulting in more excess precipitation in the form of surface runoff. This, combined with a smaller time of concentration means that there was a larger volume of surface runoff over a smaller interval of time. This attenuates the Existing Condition Model flow per unit of time, thereby increasing the flow per unit of time and peak flow for the Urbanized Condition 1 Model.\\* \\* 
+	\textit{\textbf{Urbanized Condition 2 Model Versus Existing Model:}} The reason as to why the peak discharge for the Urbanized Condition 2 Model was larger than that of the Existing Model was because while the initial storage was decreased by 50\% (which implies that more water may be absorbed into the ground before it becomes overland flow), the new maximum storage was decreased to 0.008. This means that the soil in the Urbanized Condition 2 Model held far less water before it became overland flow, translating into a higher volumes of surface runoff and thus increasing the peak discharge rate. \\* \\* 
+	\textbf{Identifying the Sensitive Parameters:} Solely based on the peak discharge values obtained in each model, the sensitive parameters are the imperviousness and time of concentration in comparison to the initial and maximum storage. This is because compared to the Existing Model, the changes made to the imperviousness and the time of concentration differed by less then the changes made to the initial storage and maximum storage, yet yielded a larger peak discharge. To verify this, a sensitivity analysis on each parameter was run individually. More specifically, each parameter value from the initial Existing Condition Model was individually varied by 5\% and by 10\%. The results of this analysis are tabulated in Table 5 below. 
+	\vspace{0.5 cm}
+	\begin{center}
+		\begin{tabular}{|M{3cm}|M{3cm}|M{3cm}||M{4cm}|}
+			\hline
+			Hydrological Parameter & \% Difference from Initial Existing Model Value & Peak Discharge (CFS) & Peak Discharge Difference as Compared to Existing Model (CFS) \\ \hline \hline
+			Imperviousness  & +5  & 429.4 & +11.8 \\ \hline
+			Imperviousness &  +10   & 441.1  & +23.5 \\ \hline \hline
+			Time of Concentration  & +5  & 423.6 & +6.0 \\ \hline
+			Time of Concentration &  +10   & 429.5 & +11.9 \\ \hline \hline
+			Initial Storage  & -5  & 415.7 &  -1.9 \\ \hline
+			Initial Storage &  -10   & 417.6  & 0 \\ \hline \hline
+			Maximum Storage  & -5  & 421.8 &  +4.2 \\ \hline
+			Maximum Storage &  -10   & 426.6  & +9.0\\ \hline
+		\end{tabular} 
+	\end{center} 
+	\begin{center} 
+		Table 5: Sensitivity analysis on the hydrological parameters of: imperviousness, time of concentration, initial storage, and maximum storage.
+	\end{center} \vspace{0.5 cm}
+Thus, as can be observed from Table 5, imperviousness followed by time of concentration are the more sensitive parameters as smaller differences in their input created larger differences in peak discharge values.
+\end{enumerate} 
+\end{document}
