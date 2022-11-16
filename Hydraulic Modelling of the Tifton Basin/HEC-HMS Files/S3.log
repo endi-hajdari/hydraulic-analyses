@@ -1,0 +1,5 @@
+NOTE 15301:  Began computing simulation run "S3" at time 17Mar2021, 07:01:28.
+NOTE 20364:  Found no parameter problems in meteorologic model "Tifton Hyetograph".
+WARNING 45220:  No plant uptake method selected for subbasin "74006".  There will be no transpiration for loss method: Soil Moisture Accounting.
+NOTE 40049:  Found no parameter problems in basin model "CASE 3".
+NOTE 15302:  Finished computing simulation run "S3" at time 17Mar2021, 07:01:28.

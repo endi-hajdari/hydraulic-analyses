@@ -1,0 +1,102 @@
+Basin: CASE 1
+     Last Modified Date: 17 March 2021
+     Last Modified Time: 10:44:40
+     Version: 4.2.1
+     Filepath Separator: \
+     Unit System: English
+     Missing Flow To Zero: No
+     Enable Flow Ratio: No
+     Compute Local Flow At Junctions: No
+
+     Enable Sediment Routing: No
+
+     Enable Quality Routing: No
+End:
+
+Subbasin: 74006
+     Last Modified Date: 17 March 2021
+     Last Modified Time: 10:58:58
+     Canvas X: 239652.6108485288
+     Canvas Y: 3513853.695017993
+     Area: 19.27
+     Downstream: Station I
+
+     Canopy: Simple
+     Allow Simultaneous Precip Et: No
+     Plant Uptake Method: None
+     Initial Canopy Storage Percent: 80
+     Canopy Storage Capacity: 0.2
+     Crop Coefficient: 1.0
+     End Canopy:
+
+     Surface: Simple
+     Initial Surface Storage Percent: 80
+     Surface Storage Capacity: 0.0
+     Surface Albedo: 0.20
+     End Surface:
+
+     LossRate: Soil Moisture Account
+     Percent Impervious Area: 5
+     Initial Soil Storage Percent: 80
+     Initial Gw1 Storage Percent: 0
+     Initial Gw2 Storage Percent: 2
+     Soil Maximum Infiltration: 2.0
+     Soil Storage Capacity: 9.0
+     Soil Tension Capacity: 8.5
+     Soil Maximum Percolation: 0.02
+     Groundwater 1 Storage Capacity: 10.0
+     Groundwater 1 Routing Coefficient: 100
+     Groundwater 1 Maximum Percolation: 0.02
+     Groundwater 2 Storage Capacity: 24.0
+     Groundwater 2 Routing Coefficient: 500
+     Groundwater 2 Maximum Percolation: 0.0
+
+     Transform: Clark
+     Time of Concentration: 20
+     Storage Coefficient: 24
+     Time Area Method: Default
+
+     Baseflow: SMA Groundwater
+     Sma Groundwater Transform: SMA Linear Reservoir
+     Sma Groundwater Layer: 1
+     GW-1 Number Reservoirs: 1
+     GW-1 Routing Coefficient: 140
+     GW-1 Initial Baseflow: 0.0
+     Sma Groundwater Layer: 2
+     GW-2 Number Reservoirs: 1
+     GW-2 Routing Coefficient: 240
+     GW-2 Initial Baseflow: 20
+End:
+
+Junction: Station I
+     Last Modified Date: 15 March 2021
+     Last Modified Time: 16:42:21
+     Canvas X: 245817.22709637432
+     Canvas Y: 3506864.932212949
+     Observed Hydrograph Gage: Gage 74006
+End:
+
+Basin Schematic Properties:
+     Last View N: 5000.0
+     Last View S: -5000.0
+     Last View W: -5000.0
+     Last View E: 5000.0
+     Maximum View N: 3516110.0
+     Maximum View S: 3506180.0
+     Maximum View W: 237461.0
+     Maximum View E: 245921.0
+     Extent Method: Maps
+     Buffer: 0
+     Draw Icons: Yes
+     Draw Icon Labels: Name
+     Draw Map Objects: No
+     Draw Gridlines: No
+     Draw Flow Direction: No
+     Fix Element Locations: No
+     Fix Hydrologic Order: No
+     Map: hms.map.MapGeoMap
+     Map File Name: C:\Users\Endi Hajdari\Desktop\MS-Tifton Basin-Group #12\Tifton.map
+     Minimum Scale: -2147483648
+     Maximum Scale: 2147483647
+     Map Shown: Yes
+End:

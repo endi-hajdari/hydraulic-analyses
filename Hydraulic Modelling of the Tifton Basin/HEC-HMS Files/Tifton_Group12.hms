@@ -1,0 +1,76 @@
+Project: Tifton-Group12
+     Description: Little River Watershed near Tifton, Georgia.
+     Version: 4.2.1
+     Filepath Separator: \
+     DSS File Name: Tifton_Group12.dss
+     Time Zone ID: America/New_York
+End:
+
+Precipitation: Tifton Hyetograph
+     Filename: Tifton_Hyetograph.met
+     Description: 
+     Last Modified Date: 17 March 2021
+     Last Modified Time: 10:56
+End:
+
+Basin: CASE 1
+     Filename: CASE_1.basin
+     Description: 
+     Last Modified Date: 17 March 2021
+     Last Modified Time: 10:58
+End:
+
+Basin: CASE 2
+     Filename: CASE_2.basin
+     Description: 
+     Last Modified Date: 17 March 2021
+     Last Modified Time: 11:00
+End:
+
+Basin: CASE 3
+     Filename: CASE_3.basin
+     Description: 
+     Last Modified Date: 17 March 2021
+     Last Modified Time: 11:01
+End:
+
+Basin: CASE 4
+     Filename: CASE_4.basin
+     Description: 
+     Last Modified Date: 17 March 2021
+     Last Modified Time: 11:02
+End:
+
+Basin: Tifton
+     Filename: Tifton.basin
+     Description: ARS Watershed 74006
+     Last Modified Date: 15 March 2021
+     Last Modified Time: 16:49
+End:
+
+Basin: Tifton 2
+     Filename: Tifton_2.basin
+     Description: 
+     Last Modified Date: 15 March 2021
+     Last Modified Time: 16:56
+End:
+
+Basin: Tifton 3
+     Filename: Tifton_3.basin
+     Description: 
+     Last Modified Date: 15 March 2021
+     Last Modified Time: 16:56
+End:
+
+Basin: Tifton 4
+     Filename: Tifton_4.basin
+     Description: 
+     Last Modified Date: 15 March 2021
+     Last Modified Time: 17:50
+End:
+
+Control: 1970
+     FileName: 1970.control
+     Description: 
+End:
+

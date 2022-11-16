@@ -1,0 +1,5 @@
+NOTE 15301:  Began computing simulation run "Urbanized Condition 1" at time 15Mar2021, 12:59:18.
+NOTE 20364:  Found no parameter problems in meteorologic model "Tifton Hyetograph".
+WARNING 45220:  No plant uptake method selected for subbasin "74006".  There will be no transpiration for loss method: Soil Moisture Accounting.
+NOTE 40049:  Found no parameter problems in basin model "Tifton 2".
+NOTE 15302:  Finished computing simulation run "Urbanized Condition 1" at time 15Mar2021, 12:59:18.

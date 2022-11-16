@@ -1,0 +1,3 @@
+NOTE 15301:  Began computing simulation run "Run 1" at time 15Mar2021, 13:45:01.
+ERROR 15256:  Meteorologic model "Tifton Hyetograph" is not set up to work with basin model "Tifton 4".
+WARNING 15303:  Aborted run "Run 1" at time 15Mar2021, 13:45:01.

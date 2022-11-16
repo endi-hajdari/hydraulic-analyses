@@ -1,0 +1,46 @@
+Gage Manager: Tifton-Group12
+     Version: 4.2.1
+     Filepath Separator: \
+End:
+
+Gage: Gage 74006
+     Last Modified Date: 15 March 2021
+     Last Modified Time: 16:49:45
+     Reference Height Units: Feet
+     Reference Height: 32.808
+     Gage Type: Flow
+     Units: CFS
+     Data Type: INST-VAL
+     Data Source Type: External DSS
+     Variant: Variant-1
+       Last Variant Modified Date: 15 March 2021
+       Last Variant Modified Time: 16:36:52
+       Default Variant: Yes
+       DSS File Name: Tifton_Group12.dss
+       DSS Pathname: /ARS/74006/FLOW/01JAN1968 - 01DEC1980/15MIN/OBS/
+       Start Time: 30 May 1970, 01:00
+       End Time: 30 June 1970, 23:00
+     End Variant: Variant-1
+End:
+
+Gage: Gage 38
+     Last Modified Date: 15 March 2021
+     Last Modified Time: 16:49:45
+     Reference Height Units: Feet
+     Reference Height: 32.808
+     Gage Type: Precipitation
+     Precipitation Type: Cumulative
+     Units: IN
+     Data Type: INST-CUM
+     Data Source Type: External DSS
+     Variant: Variant-1
+       Last Variant Modified Date: 15 March 2021
+       Last Variant Modified Time: 16:34:45
+       Default Variant: Yes
+       DSS File Name: Tifton_Group12.dss
+       DSS Pathname: /ARS/000038/PRECIP-CUM/01Jan1968 - 29Dec1980/15MIN/OBS/
+       Start Time: 30 May 1970, 01:00
+       End Time: 30 June 1970, 23:00
+     End Variant: Variant-1
+End:
+

@@ -1,0 +1,66 @@
+Meteorology: Tifton Hyetograph
+     Last Modified Date: 17 March 2021
+     Last Modified Time: 10:56:53
+     Version: 4.2.1
+     Unit System: English
+     Set Missing Data to Default: Yes
+     Precipitation Method: Specified Average
+     Short-Wave Radiation Method: None
+     Long-Wave Radiation Method: None
+     Snowmelt Method: None
+     Evapotranspiration Method: Monthly Evaporation
+     Use Basin Model: Tifton
+     Use Basin Model: Tifton 2
+     Use Basin Model: Tifton 3
+     Use Basin Model: Tifton 4
+     Use Basin Model: CASE 1
+     Use Basin Model: CASE 2
+     Use Basin Model: CASE 3
+     Use Basin Model: CASE 4
+End:
+
+Precip Method Parameters: Specified Average
+     Last Modified Date: 15 March 2021
+     Last Modified Time: 16:43:59
+     Allow Depth Override: Yes
+End:
+
+Evapotranspiration Method Parameters: Monthly Evaporation
+     Last Modified Date: 15 March 2021
+     Last Modified Time: 16:43:29
+End:
+
+Subbasin: 74006
+     Last Modified Date: 15 March 2021
+     Last Modified Time: 16:46:16
+     Vapor Pressure Type: Relative Humidity
+     Relative Humidity Gage Name: --None--
+     Gage: Gage 38
+
+     Begin Et:
+     Pan Evaporation: 2.22
+     Pan Evaporation: 2.78
+     Pan Evaporation: 4.53
+     Pan Evaporation: 6
+     Pan Evaporation: 7.08
+     Pan Evaporation: 6.97
+     Pan Evaporation: 6.81
+     Pan Evaporation: 6.32
+     Pan Evaporation: 5.12
+     Pan Evaporation: 4.24
+     Pan Evaporation: 2.8
+     Pan Evaporation: 2.17
+     Evapotranspiration Coefficient: 0.7
+     Evapotranspiration Coefficient: 0.7
+     Evapotranspiration Coefficient: 0.7
+     Evapotranspiration Coefficient: 0.7
+     Evapotranspiration Coefficient: 0.7
+     Evapotranspiration Coefficient: 0.7
+     Evapotranspiration Coefficient: 0.7
+     Evapotranspiration Coefficient: 0.7
+     Evapotranspiration Coefficient: 0.7
+     Evapotranspiration Coefficient: 0.7
+     Evapotranspiration Coefficient: 0.7
+     Evapotranspiration Coefficient: 0.7
+     End Et:
+End:
