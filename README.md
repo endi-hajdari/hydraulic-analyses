@@ -1,7 +1,7 @@
 # Hydraulic Analyses
 
-## Folder Structure Breakdown
-There are currently **6** main folders in this repository, each one corresponding to a different hydraulic project/analysis. Below is a breakdown of the subfolders and files contained in each folder in this repository:
+## Repository Breakdown
+There are currently **6** main folders in this repository, each one corresponding to a different hydraulic project/analysis. Below is a breakdown of the subfolders and files contained in each folder in this repository. Note that each main folder contains a ```README.md``` file that provides a brief overview of each project/analysis.
    
  > **Main Folder ID:** ```Activated Sludge Model Mathematical Development```
  >
