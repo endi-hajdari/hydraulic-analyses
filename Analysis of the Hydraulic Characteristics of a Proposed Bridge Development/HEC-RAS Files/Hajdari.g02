@@ -1,0 +1,110 @@
+Geom Title=Hajdari-With Bridge
+Program Version=5.03
+Viewing Rectangle= 0 , 1 , 1 , 0 
+
+River Reach=Hajdari         ,400129292       
+Reach XY= 2 
+0.23157894736842             0.90.231578947368420.05789473684211
+Rch Text X Y=0.2315789,0.6894737
+Reverse River Text= 0 
+
+Type RM Length L Ch R = 1 ,160     ,25,25,25
+BEGIN DESCRIPTION:
+Upstream
+END DESCRIPTION:
+Node Last Edited Time=Feb/23/2021 11:53:32
+#Sta/Elev= 17 
+      80  106.55      85   106.4      85   104.1      89   102.1      93   100.1
+     107   100.1     111  102.09     115  102.09     115   102.1     145   102.1
+     175   102.1     205   102.1     235   102.1     265   102.1     295   102.1
+     295   105.5     300  105.65
+#Mann= 3 , 0 , 0 
+      80     .05       0      89    .035       0     111     .05       0
+Bank Sta=89,111
+XS Rating Curve= 0 ,0
+XS HTab Starting El and Incr=100.25,0.3, 21 
+XS HTab Horizontal Distribution= 5 , 5 , 5 
+Exp/Cntr=0.5,0.3
+
+Type RM Length L Ch R = 1 ,135     ,10,10,10
+BEGIN DESCRIPTION:
+Intermediate
+END DESCRIPTION:
+Node Last Edited Time=Feb/23/2021 11:52:05
+#Sta/Elev= 16 
+      80  106.45      85   106.3      85     104      93     100     107     100
+     111     102     115     104     115   105.4     145  104.65     175   104.2
+     205  104.05     235   104.2     265  104.65     295  104.65     295   105.4
+     300  105.55
+#Mann= 3 , 0 , 0 
+      80     .05       0      85    .035       0     115     .05       0
+Bank Sta=85,115
+XS Rating Curve= 0 ,0
+XS HTab Starting El and Incr=100.15,0.3, 21 
+XS HTab Horizontal Distribution= 5 , 5 , 5 
+Exp/Cntr=0.5,0.3
+
+Type RM Length L Ch R = 3 ,130     ,,,
+Node Last Edited Time=Feb/23/2021 12:01:28
+Bridge Culvert--1,0,-1,-1, 0 
+Deck Dist Width WeirC Skew NumUp NumDn MinLoCord MaxHiCord MaxSubmerge Is_Ogee
+2.5,5,,0, 8, 8, , , 0.98, 0, 0,0,,
+      85      85      93      93     107     107     115     115
+   106.3   106.3  106.06  106.06  105.64  105.64   105.4   105.4
+   106.3     104     100  104.47  104.05     100     104   105.4
+      85      85      93      93     107     107     115     115
+   106.3   106.3  106.06  106.06  105.64  105.64   105.4   105.4
+   106.3     104     100  104.47  104.05     100     104   105.4
+BR Coef=-1 , 0 , 0 ,, 0 ,,,0.8,-1,,0,
+WSPro=,,,, 1 ,,,, 0 ,,,, 0 ,,,,-1 ,-1 ,-1 , 0 , 0 , 0 , 0 , 0 
+BC Design=,, 0 ,, 0 ,,,,,,
+BC Use User HTab Curves=0
+BC User HTab FreeFlow(D)= 0 
+
+Type RM Length L Ch R = 1 ,125     ,25,25,25
+BEGIN DESCRIPTION:
+Intermediate
+END DESCRIPTION:
+Node Last Edited Time=Feb/23/2021 11:51:29
+#Sta/Elev= 16 
+      80  106.45      85   106.3      85     104      93     100     107     100
+     111     102     115     104     115   105.4     145  104.65     175   104.2
+     205  104.05     235   104.2     265  104.65     295  104.65     295   105.4
+     300  105.55
+#Mann= 3 , 0 , 0 
+      80     .05       0      85    .035       0     115     .05       0
+Bank Sta=85,115
+XS Rating Curve= 0 ,0
+XS HTab Starting El and Incr=100.15,0.3, 21 
+XS HTab Horizontal Distribution= 5 , 5 , 5 
+Exp/Cntr=0.5,0.3
+
+Type RM Length L Ch R = 1 ,100     ,,,
+BEGIN DESCRIPTION:
+Downstream
+END DESCRIPTION:
+Node Last Edited Time=Feb/23/2021 11:47:41
+#Sta/Elev= 17 
+      80  106.35      85   106.2      85   103.9      89   101.9      93    99.9
+     107    99.9     111  101.89     115  101.89     115   101.9     145   101.9
+     175   101.9     205   101.9     235   101.9     265   101.9     295   101.9
+     295   105.3     300  105.45
+#Mann= 3 , 0 , 0 
+      80     .05       0      89    .035       0     111     .05       0
+Bank Sta=89,111
+XS Rating Curve= 0 ,0
+XS HTab Starting El and Incr=100.05,0.3, 21 
+XS HTab Horizontal Distribution= 5 , 5 , 5 
+Exp/Cntr=0.3,0.1
+
+LCMann Time=Dec/30/1899 00:00:00
+LCMann Region Time=Dec/30/1899 00:00:00
+LCMann Table=0
+Chan Stop Cuts=-1 
+
+
+
+Use User Specified Reach Order=0
+GIS Ratio Cuts To Invert=-1
+GIS Limit At Bridges=0
+Composite Channel Slope=5
