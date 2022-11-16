@@ -1,0 +1,373 @@
+\documentclass[]{article}
+\setcounter{secnumdepth}{0}
+\usepackage{xcolor}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{commath}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{esvect}
+\usepackage{listings}
+\usepackage[export]{adjustbox}
+\usepackage{multirow}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage{float}
+\usepackage{csquotes}
+\usepackage{color}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linktoc=all,     
+	linkcolor=black,
+}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+% TITLE BLOCK
+
+\title{\large{McMaster University Winter 2021} \LARGE \\* CIVENG 4L04: Design of Water Resources Systems}
+\date{}
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\begin{center}
+	\vspace{3.6cm}
+	\Huge Project 3: Analysis of Hydraulic Characteristics of a Proposed Bridge \\* \vspace{1cm}
+	\Large Lab Section 01, L01 \\* \vspace{1cm}
+	\Large Group 12 \\* \vspace{0.25cm}
+	\large Endi Hajdari, 400129292 \\* \vspace{0.05cm}
+	Jamie Yu, 400128969 \\* \vspace{6cm}
+	\large Due: February 24, 2021; 8:30 am (EST) 
+\end{center}	
+\newpage
+\doublespacing
+\tableofcontents
+\singlespacing
+\newpage 
+\section{Question 1}
+\subsection{Part A}
+ \begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q1A}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 1: The main HEC-RAS window for the model with the bridge.
+	\end{center}
+\end{minipage} \\* \\*
+\subsection{Part B}
+ \begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q2B1}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 2: The Geometric Data window for the model with the bridge. Note that additional cross-sections between River Stations 160 and 135, as well as between River Stations 125 and 100 were interpolated. The maximum distance between each of the interpolated cross sections is 1 m.
+	\end{center}
+\end{minipage}
+\newpage
+\subsection{Part C}
+\begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q2C1}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 3: The Cross Section Data window for River Station 100 for the model with the bridge. Note that these screen captures were taken after the steady flow analysis was run. 
+	\end{center}
+	\bigskip
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q2C2}%
+	}
+	\medskip
+	\begin{center} 
+		Figure 4: The Cross Section Data window for River Station 125 for the model with the bridge. Note that these screen captures were taken after the steady flow analysis was run. 
+	\end{center}
+\end{minipage}
+\begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q2C3}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 5: The Cross Section Data window for River Station 135 for the model with the bridge. Note that these screen captures were taken after the steady flow analysis was run. 
+	\end{center}
+	\bigskip
+\adjustbox{valign=t}{%
+	\includegraphics[width=\linewidth]{Q2C4}%
+}
+\medskip
+\begin{center} 
+	Figure 6: The Cross Section Data window for River Station 160 for the model with the bridge. Note that these screen captures were taken after the steady flow analysis was run. 
+\end{center}
+\end{minipage}
+\newpage
+
+\subsection{Part D}
+ \begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q1D}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 7: The Bridge Culvert Data window at River Station 130 depicting both the upstream and the downstream bridge cross-sections.
+	\end{center}
+\end{minipage}\\* 
+\subsection{Part E}
+ \begin{minipage}[t]{\linewidth}
+	\centering
+	\adjustbox{valign=t}{%
+		\includegraphics[width=3.1in]{Q2E}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 8: The Deck/Roadway Data Editor window. Note that the U.S Embankment SS, D.S Embankment SS, and Weir Coef slots were left blank, as required.
+	\end{center}
+\end{minipage} \\* \\*
+\subsection{Part F}
+ \begin{minipage}[t]{\linewidth}
+	\centering
+	\adjustbox{valign=t}{%
+		\includegraphics[width=3.1in]{Q1F}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 9: The Bridge Modeling Approach Editor window.
+	\end{center}
+\end{minipage}
+\newpage
+\subsection{Part G}
+ \begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q1G}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 10: The Steady Flow Data window for the model with the bridge.
+	\end{center}
+	\bigskip
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q1G2}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 11: The Steady Flow Boundary Conditions window for the model with the bridge.
+	\end{center}
+\end{minipage}
+\begin{minipage}[t]{\linewidth}
+	\centering
+	\adjustbox{valign=t}{%
+		\includegraphics[width=1.9in]{Q1G3}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 12: The window for setting the Known Water Surface Elevation (WS El).
+	\end{center}
+\end{minipage} \\* \\* 
+\subsection{Part H}
+ \begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q1H1}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 13: The Steady Flow Analysis window for the model with the bridge.
+	\end{center}
+\end{minipage} 
+\newpage
+ \begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q1H2}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 14: The HEC-RAS Finished Computations window.
+	\end{center}
+\end{minipage}  \\* \\*
+\subsection{Part I}
+ \begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q1I1}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Table 1: The Profile Output Table - Standard Table for the model without the bridge. Note that cross sections were interpolated between River Stations 160 and 135, 135 and 125, as well as 125 and 100. The maximum distance between each of the interpolated cross sections is 1 m.
+	\end{center}
+\end{minipage}
+ \begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q1I2}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Table 2: The Profile Output Table - Standard Table for the model with the bridge.
+	\end{center}
+\end{minipage} 
+\newpage
+\subsection{Part J}
+ \begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q1J1}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 15: The Cross Section Plot for River Station 160 for the model with the bridge.
+	\end{center} 
+\bigskip
+	\raggedright
+\adjustbox{valign=t}{%
+	\includegraphics[width=\linewidth]{Q1J2}%
+}
+
+\medskip
+\begin{center} 
+	Figure 16: The Cross Section Plot for River Station 135 for the model with the bridge.
+\end{center}
+\end{minipage}
+ \begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q1J3}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 17: The Cross Section Plot for River Station 130 BR U for the model with the bridge.
+	\end{center} 
+	\bigskip
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q1J4}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 18: The Cross Section Plot for River Station 130 BR D for the model with the bridge.
+	\end{center}
+\end{minipage}
+ \begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q1J5}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 19: The Cross Section Plot for River Station 125 for the model with the bridge.
+	\end{center} 
+	\bigskip
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q1J6}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 20: The Cross Section Plot for River Station 100 for the model with the bridge.
+	\end{center}
+\end{minipage}
+
+\newpage
+\section{Question 2} 
+\medskip
+ \begin{minipage}[t]{\linewidth}
+	\centering
+	\adjustbox{valign=t}{%
+		\includegraphics[width=6.4in]{w}%
+	}
+\medskip
+	\begin{center} 
+		Table 3: The water level, energy grade line, and velocity values at River Stations 160, 135, 125, and 100 for both the natural reach (i.e., model without the bridge), as well as for the reach with the bridge (i.e., model with the bridge).
+	\end{center}
+\end{minipage}
+\medskip
+\paragraph{}
+\noindent Due to the bridge/backwater effect, the river stations \textit{upstream} of the bridge (i.e., Stations 160 and 135) experienced changes in water level and velocity, whereas the river stations \textit{downstream} of the bridge (i.e., Stations 125 and 100) experienced no change in these values. Moreover, at River Station 160, the water level increased by 0.18 m and the velocity decreased by 0.09 m/s as a result of the bridge. At River Station 135, the changes were more significant as the water level increased by 0.23 m and the velocity decreased by 0.16 m/s as a result of the bridge. At both River Stations 125 and 100, the water level and velocity values in the natural reach were identical to those with the bridge.
+\newpage
+\section{Question 3} 
+As depicted in Figure 21 below, the minimum soffit elevation is 104.05 m. Table 4 below summarizes the water surface elevations for River Station 130. As tabulated in Table 4, at River Station 130 BR US, the simulated water surface peak flow elevation is 103.00 m. Thus, the clearance between the minimum soffit and the water level is \\*  
+\begin{equation}
+\nonumber
+\text{Clearance} = 104.05 \; \text{m} - 103.00 \; \text{m} = 1.05 \; \text{m},
+\end{equation} \\* 
+which satisfies the minimum clearance criteria of 1.00 m. As tabulated in Table 4, at River Station 130 BR DS, the simulated water surface peak flow elevation is 102.97 m. Thus, the clearance between the minimum soffit and the water level is \\*  
+\begin{equation}
+\nonumber
+\text{Clearance} = 104.05 \; \text{m} - 102.97 \; \text{m} = 1.08 \; \text{m},
+\end{equation} \\* 
+which satisfies the minimum clearance criteria of 1.00 m. \\*
+\begin{minipage}[t]{\linewidth}
+	\vspace{1cm}
+	\centering
+	\adjustbox{valign=t}{%
+		\includegraphics[width=4.5in]{Q3A}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 21: Cross section plot of the bridge that depicts the minimum elevation of the deck.
+	\end{center}
+\bigskip
+\centering
+\adjustbox{valign=t}{%
+	\includegraphics[width=4.5in]{t}%
+}
+
+\medskip
+\begin{center} 
+	Table 4: The Bridge Output Table for the model with the bridge.
+\end{center}
+\end{minipage}
+\newpage
+\section{Question 4 (Optional)} 
+\medskip
+\begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q4A}%
+	}
+	
+	\begin{center} 
+		Table 5: The combined Profile Summary Table after running steady flow analysis for each the three plans.
+	\end{center}
+\end{minipage}
+\newpage
+\paragraph{}
+The water levels obtained from each plan may easily be compared using Table 5. From the W.S. Elev column in Table 5, it is evident that the Ice Jam Plan causes the highest water surface elevation values, the Ice Cover Plan causes the next highest water surface elevation values, and the Open Water Plan has the lowest water surface elevation values. It is also evident that the ice jam event affects the water level the most at the upstream stations. For example, at River Station 42000, the greatest difference in water level between the Ice Jam and the Open Water Plans, as well as the Ice Jam and the Ice Cover plans is observed. 
+
+\end{document}
