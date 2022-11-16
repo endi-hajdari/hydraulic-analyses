@@ -1,0 +1,249 @@
+\documentclass[]{article}
+\setcounter{secnumdepth}{0}
+\usepackage{xcolor}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{braket}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{commath}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{esvect}
+\usepackage{listings}
+\usepackage[export]{adjustbox}
+\usepackage{multirow}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\usepackage{float}
+\usepackage{csquotes}
+\usepackage{color}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linktoc=all,     
+	linkcolor=black,
+}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+% TITLE BLOCK
+
+\title{\large{McMaster University Winter 2021} \LARGE \\* CIVENG 4L04: Design of Water Resources Systems}
+\date{}
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\begin{center}
+	\vspace{3.6cm}
+	\Huge Project 1: Modeling Critical Creek in HEC-RAS \\* \vspace{1cm}
+	\Large Lab Section 01, L01 \\* \vspace{1cm}
+	\Large Group 12 \\* \vspace{0.25cm}
+	\large Endi Hajdari, 400129292 \\* \vspace{0.05cm}
+	Jamie Yu, 400128969 \\* \vspace{6cm}
+	\large Due: February 3, 2021; 8:30 am (EST) 
+\end{center}	
+\newpage
+\doublespacing
+\tableofcontents
+\singlespacing
+\newpage 
+\section{Part A: Create a New Project}
+\noindent 
+\subsection{Questions} \vspace{0.25cm} \begin{enumerate}[label=\textbf{\arabic*.}] 
+	\item To create a new project in HEC-RAS, from the \textbf{File} menu, the \textbf{New Project} option must be selected first. A window will open, where one may name and create a new folder in the same directory as their preferred hard drive location. Then, the user may click the \textbf{OK} button twice - first in the window where their new folder has been created and once they have provided a title/name for their project, as well as in the window that pops up afterwards, which will confirm adjusted settings.\footnote{In the context of this lab, the user would ensure that the system units are \textit{US Customary}.} \\
+	\item \begin{minipage}[t]{\linewidth}
+		\raggedright
+		\adjustbox{valign=t}{%
+			\includegraphics[width=\linewidth]{Q2}%
+		}
+		
+		\medskip
+		\begin{center} 
+			Figure 1: The main HEC-RAS window after creating the new project titled \enquote{Critical Creek.}
+		\end{center}
+	\end{minipage}
+\end{enumerate}
+\newpage
+\section{Part B: Enter the Geometry Data}
+\noindent 
+\subsection{Questions} \vspace{0.25cm} 
+\begin{enumerate}[label=\textbf{\arabic*.}] 
+	\setItemnumber{3}
+	\item To import a geometry data file, the user must first access the \textbf{Geometry Data Editor} window by selecting the \textbf{Geometry Data} option under the \textbf{Edit} menu in the main HEC-RAS window. Once this window is open, select \textbf{File}, then \textbf{Import Geometry Data}, and choose the desired format option that subsequently appears (in this case, the user would select the \textbf{HEC-RAS Format} option). In the \textbf{Import \#HEC-RAS Format data file} window, select the \enquote{Base Geometry Data} file, click \textbf{OK}, and in the \textbf{Import Geometry Data} window, choose the units for which to import the data file in,\footnote{In the context of this lab, the user would ensure that both the project units and the \enquote{Base Geometry Data} file units are \textit{US Customary}.} as well as ensure to accept the settings by clicking the \textbf{Finished - Import Data} button. \\
+	\setItemnumber{4}
+	\item \begin{minipage}[t]{\linewidth}
+		\raggedright
+		\adjustbox{valign=t}{%
+			\includegraphics[width=\linewidth]{Q4}%
+		}
+		
+		\medskip
+		\begin{center} 
+			Figure 2: The interpolated cross sections between river station 11 and 10 using the \textbf{Between 2 Xs's} tool.
+		\end{center}
+	\end{minipage}
+	\setItemnumber{5} \\
+	\item \begin{minipage}[t]{\linewidth}
+		\raggedright
+		\adjustbox{valign=t}{%
+			\includegraphics[width=\linewidth]{Q5}%
+		}
+		
+		\medskip
+		\begin{center} 
+			Figure 3: The main HEC-RAS window after importing the geometry data file.
+		\end{center}
+	\end{minipage}
+\end{enumerate}
+\newpage
+\section{Part C: Steady Flow Data}
+\noindent 
+\subsection{Questions} \vspace{0.25cm} 
+\begin{enumerate}[label=\textbf{\arabic*.}] 
+	\setItemnumber{6}
+	\item To enter steady flow data, begin by clicking the \textbf{Edit} menu bar located on the main HEC-RAS window and then select the \textbf{Steady Flow Data} option. Next, in the window that appears, select the desired River Station, click the \textbf{Add A Flow Change Location} button, and enter the desired flow rate in the \textbf{PF1} column. Click on the \textbf{Reach Boundary Conditions} button to set desired boundary conditions Upstream and Downstream with the available external boundary condition type buttons and select \textbf{OK}. Be sure to save the steady flow data and enter a title; press \textbf{OK}.
+	\setItemnumber{7} \\
+	\item \begin{minipage}[t]{\linewidth}
+		\raggedright
+		\adjustbox{valign=t}{%
+			\includegraphics[width=\linewidth]{Q7}%
+		}
+		
+		\medskip
+		\begin{center} 
+			Figure 4: The main HEC-RAS window after saving the flow data file.
+		\end{center}
+	\end{minipage}
+\end{enumerate}
+\newpage
+\section{Part D: Simulation Plans}
+\noindent 
+\subsection{Questions} \vspace{0.25cm}
+\begin{enumerate}[label=\textbf{\arabic*.}] 
+	\setItemnumber{8}
+	\item The three important factors to note when creating a simulation plan are to select: (1) a geometry file, (2) a steady flow file, and (3) a flow regime. \\
+	\setItemnumber{9}
+	\item \begin{minipage}[t]{\linewidth}
+		\raggedright
+		\adjustbox{valign=t}{%
+			\includegraphics[width=\linewidth]{Q9}%
+		}
+		
+		\medskip
+		\begin{center} 
+			Figure 5: The steady flow analysis plan for evaluation.
+		\end{center}
+	\end{minipage} \\
+	\setItemnumber{10}
+\item \begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q10}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 6: The main HEC-RAS window after creating the simulation plan.
+	\end{center}
+\end{minipage}
+\end{enumerate}
+\newpage
+\section{Part E: Results and Comparison}
+\noindent 
+\subsection{Questions} \vspace{0.25cm}
+\begin{enumerate}[label=\textbf{\arabic*.}] 
+	\setItemnumber{11}
+	\item \begin{minipage}[t]{\linewidth}
+		\raggedright
+		\adjustbox{valign=t}{%
+			\includegraphics[width=\linewidth]{11'}%
+		}
+		
+		\medskip
+		\begin{center} 
+			Figure 7: The cross section plot at river station 10 showing the water surface level.
+		\end{center}
+		\medskip
+		\adjustbox{valign=t}{%
+			\includegraphics[width=\linewidth]{11}%
+		}
+	\medskip
+	\begin{center} 
+		Figure 8: The cross section plot at river station 11 showing the water surface level.
+	\end{center}
+	\end{minipage} \\
+	\setItemnumber{12}
+	\item \begin{minipage}[t]{\linewidth}
+		\raggedright
+		\adjustbox{valign=t}{%
+			\includegraphics[width=\linewidth]{Q12'}%
+		}
+		
+		\medskip
+		\begin{center} 
+			Figure 9: The profile plot of Critical Creek illustrating water surface level along the upper reach.
+		\end{center}
+	\end{minipage} 
+	\setItemnumber{13} \\
+	\item \begin{minipage}[t]{\linewidth}
+		\raggedright
+		\adjustbox{valign=t}{%
+			\includegraphics[width=\linewidth]{Q13'}%
+		}
+		
+		\medskip
+		\begin{center} 
+			Figure 10: A perspective view of the upper reach showing water surface level.
+		\end{center}
+	\end{minipage}
+\setItemnumber{14} \\
+\item \begin{minipage}[t]{\linewidth}
+	\raggedright
+	\adjustbox{valign=t}{%
+		\includegraphics[width=\linewidth]{Q14'}%
+	}
+	
+	\medskip
+	\begin{center} 
+		Figure 11: Standard Table 1 for the ModifiedGeo Plan (i.e. no ice cover).
+	\end{center}
+\end{minipage}
+\end{enumerate}
+\newpage
+\section{Part F: Ice Cover Modelling (Optional)}
+\noindent 
+\subsection{Questions} \vspace{0.25cm}
+\begin{enumerate}[label=\textbf{\arabic*.}] 
+	\setItemnumber{15}
+	\item \begin{minipage}[t]{\linewidth}
+		\raggedright
+		\adjustbox{valign=t}{%
+			\includegraphics[width=\linewidth]{Q15'}%
+		}
+		
+		\medskip
+		\begin{center} 
+			Figure 12: The profile plot of Critical Creek illustrating water surface level and ice cover thickness along the upper reach.
+		\end{center}
+	\end{minipage}
+	\setItemnumber{16} \\
+	\item \begin{minipage}[t]{\linewidth}
+		\raggedright
+		\adjustbox{valign=t}{%
+			\includegraphics[width=\linewidth]{Q16'}%
+		}
+		
+		\medskip
+		\begin{center} 
+			Figure 13: Standard Table 1 for the ModifiedGeoIce Plan (i.e. with ice cover).
+		\end{center}
+		\medskip 
+	\end{minipage} \\
+	Comparing the water surface elevations obtained with ice cover (see Figure 13) and without ice cover (see Figure 11), the water surface elevation values were slightly higher \textit{with} ice cover. Moreover, the differences observed in the water surface elevation values were less than a foot. This result makes sense as the less dense ice would float above the water, with part of it being submerged (hence why the water surface elevation values were only slightly higher between the two plans and why they varied by less than 2ft - the thickness of the ice cover).
+\end{enumerate}
+\end{document}
