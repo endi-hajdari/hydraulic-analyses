@@ -1,6 +1,17 @@
 # Hydraulic Analyses
 This repository contains **7 different projects** related to wastewater treatment processes, hydraulic and hydrological modelling of various structures/systems of different scales, as well as the design and analysis of municipal hydraulic systems. Each of these projects were affliated with my undergraduate studies in Civil Engineering at McMaster University and/or my research experiences.
 
+## Project Breakdown
+|  Project ID 	|   Project Category	| Language/Software Used	|
+|---	|---	|---	|
+|Activated Sludge Model Mathematical Development	|  Wastewater treatment processes 	|  ```TeX``` ```Excel``` ```VBA```	|
+|Analysis of the Hydraulic Characteristics of a Proposed Bridge Development	|   	| ```TeX``` ```HEC-RAS``` ```ArcGIS``` 	|
+|Design of a Municipal Water Distribution System |   	|  ```TeX``` ```Excel``` ```VBA``` |
+|Hydraulic Modelling of Critical Creek  	|   	| ```TeX``` ```HEC-RAS``` ```ArcGIS```	|
+|Hydraulic Modelling of the Tifton Basin  |   	| ```TeX``` ```HEC-HMS``` ```ArcGIS```	|
+|Unstable Infiltration of Water in Porous Media  |   	|```TeX``` ```MATLAB``` ```Excel``` ```Python``` ```COSMOL Multiphysics``` ```ArcGIS``` ```PowerPoint```|
+|Wildfire Impacts on Hydrological Processes at the Catchment Scale |   	| ```TeX``` ```ArcGIS``` ```PowerPoint``` |
+
 ## Repository Breakdown
 There are currently **7 main folders** in this repository, each one corresponding to a different hydraulic project/analysis. Below is a breakdown of the subfolders and files contained in each folder in this repository. Note that each main folder contains a ```README.md``` file that provides a brief overview of each project/analysis.
    
