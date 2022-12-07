@@ -17,12 +17,12 @@ There are currently **7 main folders** in this repository, each one correspondin
    
  > **Main Folder ID:** ```Activated Sludge Model Mathematical Development```
  >
- >> **IDs of Files Contained:** ```Activated Sludge Mathematical Model Development.pdf```   ```Activated Sludge Mathematical Model Development.tex```    ```Computational ASM Development.xlsx``` ```README.md```
+ >> **IDs of Files Contained:** ```Activated Sludge Mathematical Model Development.pdf```   ```Activated Sludge Mathematical Model Development.tex```    ```Computational ASM Development.xlsx```
 
    
  > **Main Folder ID:** ```Analysis of the Hydraulic Characteristics of a Proposed Bridge Development```
  >
- >> **IDs of Files Contained:** ```Analysis of Hydraulic Characteristics of a Proposed Bridge.pdf``` ```Analysis of Hydraulic Characteristics of a Proposed Bridge.tex``` ```README.md```
+ >> **IDs of Files Contained:** ```Analysis of Hydraulic Characteristics of a Proposed Bridge.pdf``` ```Analysis of Hydraulic Characteristics of a Proposed Bridge.tex``` 
  >
  >> **Subfolder ID:** ```HEC-RAS Files```
  >>
@@ -30,7 +30,7 @@ There are currently **7 main folders** in this repository, each one correspondin
    
   > **Main Folder ID:** ```Design of a Municipal Water Distribution System```
   >
-  >> **IDs of Files Contained:** ```Design of a Hydraulic Distribution System.pdf``` ```Design of a Hydraulic Distribution System.tex``` ```Hardy Cross Iterations.xlsx``` ```README.md```
+  >> **IDs of Files Contained:** ```Design of a Hydraulic Distribution System.pdf``` ```Design of a Hydraulic Distribution System.tex``` ```Hardy Cross Iterations.xlsx``` 
    
   > **Main Folder ID:** ```Hydraulic Modelling of Critical Creek```
   >
@@ -42,7 +42,7 @@ There are currently **7 main folders** in this repository, each one correspondin
    
   > **Main Folder ID:** ```Hydraulic Modelling of the Tifton Basin```
   >
-  >> **IDs of Files Contained:** ```Modeling Tifton Basin in HEC-HMS.pdf``` ```Modeling Tifton Basin in HEC-HMS.tex``` ```README.md```
+  >> **IDs of Files Contained:** ```Modeling Tifton Basin in HEC-HMS.pdf``` ```Modeling Tifton Basin in HEC-HMS.tex``` 
   >
   >> **Subfolder ID:** ```HEC-HMS Files```
   >>
@@ -51,8 +51,8 @@ There are currently **7 main folders** in this repository, each one correspondin
      
   > **Main Folder ID:** ```Unstable Infiltration of Water in Porous Media```
   >
-  >> **IDs of Files Contained:** ```Gravity Fingering in Porous Media (Presentation Slides).pdf``` ```Gravity Fingering in Porous Media (Poster Presentation).pdf``` ```README.md```
+  >> **IDs of Files Contained:** ```Gravity Fingering in Porous Media (Presentation Slides).pdf``` ```Gravity Fingering in Porous Media (Poster Presentation).pdf``` 
   
   > **Main Folder ID:** ```Wildfire Impacts on Hydrological Processes at the Catchment Scale```
   >
-  >> **IDs of Files Contained:** ```Wildfire impacts on hydrological processes (Presentation Slides).pdf``` ```Wildfire impacts on hydrological processes at the catchment level (Literature Review).pdf``` ```README.md```
+  >> **IDs of Files Contained:** ```Wildfire impacts on hydrological processes (Presentation Slides).pdf``` ```Wildfire impacts on hydrological processes at the catchment level (Literature Review).pdf``` 
